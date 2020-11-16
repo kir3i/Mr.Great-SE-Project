@@ -7,11 +7,11 @@ export default class Basket {
 
     add_order(order_info) {
         let new_order = new Order(
-            order_info[menu], 
-            order_info[style], 
-            order_info[foods_to_remove], 
-            order_info[amount], 
-            order_info[additional_info]
+            order_info.menu, 
+            order_info.style, 
+            order_info.foods_to_remove, 
+            order_info.amount, 
+            order_info.additional_info
         );
         this.#_order_list.push(new_order);
     }
