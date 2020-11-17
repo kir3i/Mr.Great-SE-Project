@@ -1,13 +1,29 @@
 "use strict";
 
 import Menu from './Menu.mjs';
-
+const menu_path = './data/menu'
 export default class Basic_info {
     static #_menu_list = [
-        new Menu('Vallentine_dinner', './menu/img/Vallentine_dinner', './menu/Vallentine_dinner'),
-        new Menu('French_dinner', './menu/img/French_dinner', './menu/French_dinner'),
-        new Menu('English_dinner', './menu/img/English_dinner', './menu/English_dinner'),
-        new Menu('Champagne_festival_dinner', './menu/img/Champagne_festival_dinner', './menu/Champagne_festival_dinner')
+        new Menu(
+            'Vallentine_dinner', 
+            `${menu_path}/img/Vallentine_dinner`, 
+            `${menu_path}/Vallentine_dinner`
+        ),
+        new Menu(
+            'French_dinner', 
+            `${menu_path}/img/French_dinner`, 
+            `${menu_path}/French_dinner`
+        ),
+        new Menu(
+            'English_dinner', 
+            `${menu_path}/img/English_dinner`, 
+            `${menu_path}/English_dinner`
+        ),
+        new Menu(
+            'Champagne_festival_dinner', 
+            `${menu_path}/img/Champagne_festival_dinner`, 
+            `${menu_path}/Champagne_festival_dinner`
+        )
     ];
     static #_order_options_list = {
         'Vallentine_dinner': ['접시', '냅킨'],
