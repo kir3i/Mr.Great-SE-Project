@@ -2,6 +2,12 @@
 
 import Order_status from './Order_status.mjs';
 
+static const price_of_style = {
+    'simple': 0,
+    'grand': 3000,
+    'deluxe': 10000
+};
+
 export default class Order {
     static #_order_count = 0;
     #_menu;
@@ -55,7 +61,12 @@ export default class Order {
         return this.#_additional_info;
     }
 
+    get_price() {
+        const price = ( (menu.price) + price_of_style(this.#_style) ) * this.#_amount;
+    }
+
     set status(order_status) {
         this.#_status = order_status;
     }
+    
 }
