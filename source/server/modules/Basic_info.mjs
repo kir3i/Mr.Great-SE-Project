@@ -7,22 +7,44 @@ export default class Basic_info {
         new Menu(
             'Vallentine_dinner', 
             `${menu_path}/img/Vallentine_dinner`, 
-            `${menu_path}/Vallentine_dinner`
+            `${menu_path}/Vallentine_dinner`,
+            10000,
+            { }
         ),
         new Menu(
             'French_dinner', 
             `${menu_path}/img/French_dinner`, 
-            `${menu_path}/French_dinner`
+            `${menu_path}/French_dinner`,
+            20000,
+            {
+                'coffee': 4000,
+                'wine': 8000,
+                'salad': 5000,
+                'beef': 15000
+            }
         ),
         new Menu(
             'English_dinner', 
             `${menu_path}/img/English_dinner`, 
-            `${menu_path}/English_dinner`
+            `${menu_path}/English_dinner`,
+            24000,
+            {
+                'egg': 3000,
+                'bacon': 8000,
+                'bread': 15000,
+                'stake': 20000
+            }
         ),
         new Menu(
             'Champagne_festival_dinner', 
             `${menu_path}/img/Champagne_festival_dinner`, 
-            `${menu_path}/Champagne_festival_dinner`
+            `${menu_path}/Champagne_festival_dinner`,
+            62000,
+            {
+                'champagne': 25000,
+                'bagguette': 15000,
+                'coffee': 15000
+            }
         )
     ];
     static #_order_options_list = {

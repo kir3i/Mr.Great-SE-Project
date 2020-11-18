@@ -12,16 +12,16 @@ export default class Order {
     static #_order_count = 0;
     #_menu;
     #_style;
-    #_foods_to_remove;
+    #_food_amount_list; // {'name': amount(int)}
     #_amount;
     #_additional_info;
     #_status;
     #_order_id;
 
-    constructor(menu, style, foods_to_remove, amount, additional_info) {
-        this.#_menu = menu;
-        this.#_style = style;
-        this.#_foods_to_remove = foods_to_remove;
+    constructor(menu, style, food_amount_list, amount, additional_info) {
+        this.#_menu = menu; // Menu객체
+        this.#_style = style;   // string
+        this.#_food_amount_list = food_amount_list; // {food(string): amount(int)}
         this.#_amount = amount;
         this.#_additional_info = additional_info;
         this.#_status = Order_status.WAITING;
@@ -49,8 +49,8 @@ export default class Order {
         return this.#_style;
     }
 
-    get foods_to_remove() {
-        return this.#_foods_to_remove;
+    get foods_amount_list() {
+        return this.#_foods_amount_list;
     }
 
     get amount() {
@@ -62,7 +62,12 @@ export default class Order {
     }
 
     get_price() {
-        const price = ( (menu.price) + price_of_style(this.#_style) ) * this.#_amount;
+        let price = ( (menu.price) + price_of_style(this.#_style) );
+        for (const food in this.#_food_amount_list) {
+            if (this.#_food_amount_list[food] > 1)
+                price += (menu.food_list[food])*(this.#_food_amount_list[food] - 1);
+        }
+        price *= this.#_amount;
     }
 
     set status(order_status) {

@@ -5,11 +5,14 @@ export default class Menu {
     #_photo;
     #_description;
     #_price;
+    #_food_list;
 
-    constructor(name, photo, description) {
+    constructor(name, photo, description, price, food_list) {
         this.#_name = name;
         this.#_photo = photo;
         this.#_description = description;
+        this.#_price = price;
+        this.#_food_list = food_list;
     }
 
     get name() {
@@ -26,5 +29,9 @@ export default class Menu {
 
     get price() {
         return this.#_price;
+    }
+
+    get food_list() {
+        return this.#_food_list;
     }
 }
