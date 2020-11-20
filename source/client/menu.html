@@ -112,6 +112,11 @@
                                             <i class="fas fa-hamburger fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
+                                    <div class="row no-gutters align-items-center">
+                                        <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#valentineModal">
+                                            주문하기
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -266,7 +271,7 @@
                             </select>
                         </div>
 
-                        <!-- 수량 1 -->
+                        <!-- 수량 2 -->
                         <div class="form-group row">
                             <label for="inputState" class="col-sm-3">냅킨</label>
                             <select id="inputState" class="form-control col-sm-2 ml-3">
@@ -317,6 +322,355 @@
         </div>
     </div>
 
+
+    <!-- frenchModal Modal-->
+    <div class="modal fade" id="frenchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">주문하기 상세</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- form start -->
+                    <form>
+                        <!-- 스타일 -->
+                        <div class="form-group row">
+                            <div class="col">
+                                <label for="inputState" class="col-sm-3">스타일</label>
+                                <select id="inputState" class="form-control col-sm-12">
+                                    <option selected>simple</option>
+                                    <option>grand(+3,000)</option>
+                                    <option>deluxe(+10,000)</option>
+                                </select>
+                                <small class="form-text text-muted m-2">
+                                    simple : 상자 접시에 냅킨이 플라스틱 쟁반에 제공됩니다. 와인이 포함되면 잔은 플라스틱 잔입니다.<br>
+                                    grand : 도자기 접시와 컵, 흰색 면 냅킨이 나무 쟁반에 제공됩니다.<br>
+                                    deluxe : 쟁반에 꽃들이 있는 작은 꽃병, 도자기 접시와 린넨 냅킨이 함께 제공됩니다.
+                                </small>
+                            </div>
+                        </div>
+
+                        <!-- 수량 1 -->
+                        <div class="form-group row">
+                            <label for="inputState" class="col-sm-3">커피</label>
+                            <select id="inputState" class="form-control col-sm-2 ml-3">
+                                <option selected>1포트</option>
+                                <option>0포트</option>
+                                <option>2포트</option>
+                                <option>3포트</option>
+                                <option>4포트</option>
+                                <option>5포트</option>
+                            </select>
+                        </div>
+
+                        <!-- 수량 2 -->
+                        <div class="form-group row">
+                            <label for="inputState" class="col-sm-3">와인</label>
+                            <select id="inputState" class="form-control col-sm-2 ml-3">
+                                <option selected>1잔</option>
+                                <option>0잔</option>
+                                <option>2잔</option>
+                                <option>3잔</option>
+                                <option>4잔</option>
+                                <option>5잔</option>
+                            </select>
+                        </div>
+
+                        <!-- 수량 3 -->
+                        <div class="form-group row">
+                            <label for="inputState" class="col-sm-3">샐러드</label>
+                            <select id="inputState" class="form-control col-sm-2 ml-3">
+                                <option selected>1개</option>
+                                <option>0개</option>
+                                <option>2개</option>
+                                <option>3개</option>
+                                <option>4개</option>
+                                <option>5개</option>
+                            </select>
+                        </div>
+
+                        <!-- 수량 4 -->
+                        <div class="form-group row">
+                            <label for="inputState" class="col-sm-3">고기</label>
+                            <select id="inputState" class="form-control col-sm-2 ml-3">
+                                <option selected>1개</option>
+                                <option>0개</option>
+                                <option>2개</option>
+                                <option>3개</option>
+                                <option>4개</option>
+                                <option>5개</option>
+                            </select>
+                        </div>
+
+                        <!-- 배송지 -->
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">배송지</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" id="inputEmail3" placeholder="배송지">
+                            </div>
+                        </div>
+
+                        <!-- 배송 시간 -->
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">배송시간</label>
+                            <div class="col-sm-9">
+                              <input class="form-control" id="inputEmail3" placeholder="배송시간">
+                            </div>
+                        </div>
+
+                        <!-- 배송 시간 -->
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">수량</label>
+                            <div class="col-sm-3">
+                              <input class="form-control" id="inputEmail3" placeholder="수량" value="1">
+                            </div>
+                        </div>
+
+                        <!-- footer -->
+                        <div class="form-group row modal-footer">
+                          <div class="col-sm-10 align-right">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                            <button type="submit" class="btn btn-primary" data-dismiss="modal">장바구니에 담기</button>
+                          </div>
+                        </div>
+                      </form>
+                      <!-- form end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- englishModal Modal-->
+    <div class="modal fade" id="englishModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">주문하기 상세</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- form start -->
+                    <form>
+                        <!-- 스타일 -->
+                        <div class="form-group row">
+                            <div class="col">
+                                <label for="inputState" class="col-sm-3">스타일</label>
+                                <select id="inputState" class="form-control col-sm-12">
+                                    <option selected>simple</option>
+                                    <option>grand(+3,000)</option>
+                                    <option>deluxe(+10,000)</option>
+                                </select>
+                                <small class="form-text text-muted m-2">
+                                    simple : 상자 접시에 냅킨이 플라스틱 쟁반에 제공됩니다. 와인이 포함되면 잔은 플라스틱 잔입니다.<br>
+                                    grand : 도자기 접시와 컵, 흰색 면 냅킨이 나무 쟁반에 제공됩니다.<br>
+                                    deluxe : 쟁반에 꽃들이 있는 작은 꽃병, 도자기 접시와 린넨 냅킨이 함께 제공됩니다.
+                                </small>
+                            </div>
+                        </div>
+
+                        <!-- 수량 1 -->
+                        <div class="form-group row">
+                            <label for="inputState" class="col-sm-3">에그 스크램블</label>
+                            <select id="inputState" class="form-control col-sm-2 ml-3">
+                                <option selected>1개</option>
+                                <option>0개</option>
+                                <option>2개</option>
+                                <option>3개</option>
+                                <option>4개</option>
+                                <option>5개</option>
+                            </select>
+                        </div>
+
+                        <!-- 수량 2 -->
+                        <div class="form-group row">
+                            <label for="inputState" class="col-sm-3">베이컨</label>
+                            <select id="inputState" class="form-control col-sm-2 ml-3">
+                                <option selected>1개</option>
+                                <option>0개</option>
+                                <option>2개</option>
+                                <option>3개</option>
+                                <option>4개</option>
+                                <option>5개</option>
+                            </select>
+                        </div>
+
+                        <!-- 수량 3 -->
+                        <div class="form-group row">
+                            <label for="inputState" class="col-sm-3">빵</label>
+                            <select id="inputState" class="form-control col-sm-2 ml-3">
+                                <option selected>1개</option>
+                                <option>0개</option>
+                                <option>2개</option>
+                                <option>3개</option>
+                                <option>4개</option>
+                                <option>5개</option>
+                            </select>
+                        </div>
+
+                        <!-- 수량 4 -->
+                        <div class="form-group row">
+                            <label for="inputState" class="col-sm-3">스테이크</label>
+                            <select id="inputState" class="form-control col-sm-2 ml-3">
+                                <option selected>1개</option>
+                                <option>0개</option>
+                                <option>2개</option>
+                                <option>3개</option>
+                                <option>4개</option>
+                                <option>5개</option>
+                            </select>
+                        </div>
+
+                        <!-- 배송지 -->
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">배송지</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" id="inputEmail3" placeholder="배송지">
+                            </div>
+                        </div>
+
+                        <!-- 배송 시간 -->
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">배송시간</label>
+                            <div class="col-sm-9">
+                              <input class="form-control" id="inputEmail3" placeholder="배송시간">
+                            </div>
+                        </div>
+
+                        <!-- 배송 시간 -->
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">수량</label>
+                            <div class="col-sm-3">
+                              <input class="form-control" id="inputEmail3" placeholder="수량" value="1">
+                            </div>
+                        </div>
+
+                        <!-- footer -->
+                        <div class="form-group row modal-footer">
+                          <div class="col-sm-10 align-right">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                            <button type="submit" class="btn btn-primary" data-dismiss="modal">장바구니에 담기</button>
+                          </div>
+                        </div>
+                      </form>
+                      <!-- form end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- champagneModal Modal-->
+    <div class="modal fade" id="champagneModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">주문하기 상세</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- form start -->
+                    <form>
+                        <!-- 스타일 -->
+                        <div class="form-group row">
+                            <div class="col">
+                                <label for="inputState" class="col-sm-3">스타일</label>
+                                <select id="inputState" class="form-control col-sm-12">
+                                    <option selected>grand(+3,000)</option>
+                                    <option>deluxe(+10,000)</option>
+                                </select>
+                                <small class="form-text text-muted m-2">
+                                    simple : 상자 접시에 냅킨이 플라스틱 쟁반에 제공됩니다. 와인이 포함되면 잔은 플라스틱 잔입니다.<br>
+                                    grand : 도자기 접시와 컵, 흰색 면 냅킨이 나무 쟁반에 제공됩니다.<br>
+                                    deluxe : 쟁반에 꽃들이 있는 작은 꽃병, 도자기 접시와 린넨 냅킨이 함께 제공됩니다.
+                                </small>
+                            </div>
+                        </div>
+
+                        <!-- 수량 1 -->
+                        <div class="form-group row">
+                            <label for="inputState" class="col-sm-3">샴페인</label>
+                            <select id="inputState" class="form-control col-sm-2 ml-3">
+                                <option selected>1병</option>
+                                <option>0병</option>
+                                <option>2병</option>
+                                <option>3병</option>
+                                <option>4병</option>
+                                <option>5병</option>
+                            </select>
+                        </div>
+
+                        <!-- 수량 2 -->
+                        <div class="form-group row">
+                            <label for="inputState" class="col-sm-3">바게트빵</label>
+                            <select id="inputState" class="form-control col-sm-2 ml-3">
+                                <option selected>4개</option>
+                                <option>0개</option>
+                                <option>1개</option>
+                                <option>2개</option>
+                                <option>3개</option>
+                                <option>5개</option>
+                            </select>
+                        </div>
+
+                        <!-- 수량 3 -->
+                        <div class="form-group row">
+                            <label for="inputState" class="col-sm-3">커피</label>
+                            <select id="inputState" class="form-control col-sm-2 ml-3">
+                                <option selected>1포트</option>
+                                <option>0포트</option>
+                                <option>2포트</option>
+                                <option>3포트</option>
+                                <option>4포트</option>
+                                <option>5포트</option>
+                            </select>
+                        </div>
+
+                        <!-- 배송지 -->
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">배송지</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" id="inputEmail3" placeholder="배송지">
+                            </div>
+                        </div>
+
+                        <!-- 배송 시간 -->
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">배송시간</label>
+                            <div class="col-sm-9">
+                              <input class="form-control" id="inputEmail3" placeholder="배송시간">
+                            </div>
+                        </div>
+
+                        <!-- 배송 시간 -->
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-3 col-form-label">수량</label>
+                            <div class="col-sm-3">
+                              <input class="form-control" id="inputEmail3" placeholder="수량" value="1">
+                            </div>
+                        </div>
+
+                        <!-- footer -->
+                        <div class="form-group row modal-footer">
+                          <div class="col-sm-10 align-right">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                            <button type="submit" class="btn btn-primary" data-dismiss="modal">장바구니에 담기</button>
+                          </div>
+                        </div>
+                      </form>
+                      <!-- form end -->
+                </div>
+            </div>
+        </div>
+    </div>
     
 
     <!-- Bootstrap core JavaScript-->
