@@ -69,7 +69,25 @@ app.get('/customer', (req, res) => {
 
 // 고객 - 메뉴 페이지
 app.get('/menu', (req, res) => {
-  res.sendFile(path.join(__dirname, 'source', 'client', 'menu.html'));
+    res.sendFile(path.join(__dirname, 'source', 'client', 'menu.html'));
+});
+
+app.post('/menu', (req, res) => {
+    const { style, info } = req.body;
+    console.log(style, info);
+});
+
+// 고객 - 장바구니 페이지
+app.get('/basket', (req, res) => {
+   res.sendFile(path.join(__dirname, 'source', 'client', 'basket.html'));
+});
+
+// 고객 - 장바구니 목록 리턴
+app.get('/basketList', (req, res) => {
+    const { id } = req.body;
+    // id에 해당하는 장바구니 리턴
+    const ret = undefined;
+    res.send(ret);
 });
 
 // 직원 메인 페이지

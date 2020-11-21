@@ -1,5 +1,6 @@
 "use strict"
 
+import Basic_info from './Basic_info.mjs';
 import Order_status from './Order_status.mjs';
 
 const price_of_style = {
@@ -10,7 +11,7 @@ const price_of_style = {
 
 export default class Order {
     static #_order_count = 0;
-    #_menu;
+    #_menu; // Menu 객체
     #_style;
     #_food_amount_list; // {'name': amount(int)}
     #_amount;
@@ -19,7 +20,7 @@ export default class Order {
     #_order_id;
 
     constructor(menu, style, food_amount_list, amount, additional_info) {
-        this.#_menu = menu; // Menu객체
+        this.#_menu = Basic_info.menu_list[menu];
         this.#_style = style;   // string
         this.#_food_amount_list = food_amount_list; // {food(string): amount(int)}
         this.#_amount = amount;
