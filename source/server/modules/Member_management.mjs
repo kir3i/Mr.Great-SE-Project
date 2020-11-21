@@ -1,5 +1,6 @@
 "use strict"
 
+import { json } from 'body-parser';
 import fs from 'fs';
 import path from 'path';
 import Customer from "./Customer.mjs";
@@ -15,15 +16,20 @@ export default class Member_management {
             'info': info
         };
         
+        user.info = JSON.parse(user.info);
         const userJson = JSON.stringify(user);
 
         try {
+            if(fs.existsSync(`${data_path}users/${id}.json`))
+                throw('Signup Error: already exist id');
             fs.writeFileSync(`${data_path}users/${id}.json`, userJson, 'utf8');
         } catch(e) {
             console.log(e);
+            return null;
         }
 
-        this.#_activated_member_list[id] = new Customer(id, info.is_regular, info.recent_ordered_menu);
+        this.#_activated_member_list[id] = new Customer(id, user.info.is_regular, user.info.recent_ordered_menu);
+        return this.activated_member_list[id];
     }
 
     // login

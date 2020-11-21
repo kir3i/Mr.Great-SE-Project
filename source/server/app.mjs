@@ -26,12 +26,12 @@ app.use(bodyParser.json());
 
 
 
-// 메인 페이지 전송
+// 메인 페이지 GET
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'source', 'client', 'index.html'));
 });
 
-// 로그인 로직
+// 로그인 로직 (POST)
 // 수신: {id, pw}
 // 반환: Customer 객체 or null
 app.post('/', (req, res) => {
@@ -44,19 +44,22 @@ app.post('/', (req, res) => {
     res.send(ret);
 });
 
-// 회원가입 페이지 전송
+// 회원가입 페이지 GET
 app.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname, 'source', 'client', 'register.html'));
 });
 
-// 회원가입 로직
+// 회원가입 로직 (POST)
+// 수신: {id, pw, info}
+// 반환: Customer 객체 or null
 app.post('/register', (req, res) => {
     const { id, pw, info } = req.body;
     console.log(id, pw, info);
 
-    // TODO: 적당한 회원가입 로직
-    console.log('register...');
-    res.send(id);
+    // try register
+    // 성공 시 Customer 객체 반환, 실패 시 null 반환
+    const ret = Member_management.signup(id, pw, info);
+    res.send(ret);
 });
 
 // 고객 메인 페이지

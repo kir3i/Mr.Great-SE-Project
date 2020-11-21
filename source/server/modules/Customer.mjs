@@ -27,6 +27,9 @@ export default class Customer {
             const user_str = fs.readFileSync(`./data/users/${this.id}.json`, 'utf8');
             const user = JSON.parse(user_str);
             user.info.call_cnt += 1;
+            // 단골 손님 등록
+            if (user.info.call_cnt > 3)
+                user.info.is_regular = true;
             user.info.recent_ordered_menu.push(...this.basket.order_list);
 
             //console.log(user);
