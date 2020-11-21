@@ -26,6 +26,9 @@ export default class Member_management {
         this.#_activated_member_list[id] = new Customer(id, info.is_regular, info.recent_ordered_menu);
     }
 
+    // login
+    // id: string, pw: string
+    // returnType: 성공 시 Customer, 실패 시 null
     static login(id, pw) {
         console.log(`file load from ./data/users/${id}.json`);
         
@@ -48,8 +51,7 @@ export default class Member_management {
             console.log(e);
             return null;
         }
-
-        return id;
+        return JSON.stringify(this.activated_member_list[id]);
     }
 
     static deactivate(id) {

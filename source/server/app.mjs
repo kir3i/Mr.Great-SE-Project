@@ -32,16 +32,16 @@ app.get('/', (req, res) => {
 });
 
 // 로그인 로직
-app.post('/', (req, res, next) => {
+// 수신: {id, pw}
+// 반환: Customer 객체 or null
+app.post('/', (req, res) => {
     const { id, pw } = req.body;
     console.log(id, pw);
 
-    // TODO: 적당한 로그인 로직
+    // try login
+    // 성공 시 Customer 객체 반환, 실패 시 null 반환
     const ret = Member_management.login(id, pw);
-    if (ret === null)
-        res.send(false);
-    else
-        res.send(ret);
+    res.send(ret);
 });
 
 // 회원가입 페이지 전송
