@@ -22,10 +22,7 @@ export default class Customer {
     }
 
     get recent_ordered_menu_list() {
-        if (this.#_is_regular)
-            return this.#_recent_ordered_menu_list;
-        else
-            return null;
+        return this.#_recent_ordered_menu_list;
     }
 
     get basket() {

@@ -2,7 +2,7 @@
 
 import Order_status from './Order_status.mjs';
 
-static const price_of_style = {
+const price_of_style = {
     'simple': 0,
     'grand': 3000,
     'deluxe': 10000
@@ -50,7 +50,7 @@ export default class Order {
     }
 
     get foods_amount_list() {
-        return this.#_foods_amount_list;
+        return this.#_food_amount_list;
     }
 
     get amount() {

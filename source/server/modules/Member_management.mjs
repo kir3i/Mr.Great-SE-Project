@@ -1,8 +1,10 @@
 "use strict"
 
 import fs from 'fs';
+import path from 'path';
 import Customer from "./Customer.mjs";
 
+const data_path = './source/server/modules/data/';
 export default class Member_management {
     static #_activated_member_list = {};
 
@@ -16,19 +18,19 @@ export default class Member_management {
         const userJson = JSON.stringify(user);
 
         try {
-            fs.writeFileSync(`./data/users/${id}.json`, userJson, 'utf8');
+            fs.writeFileSync(`${data_path}users/${id}.json`, userJson, 'utf8');
         } catch(e) {
             console.log(e);
         }
 
-        this.#_activated_member_list[id] = new Customer(id, false, null);
+        this.#_activated_member_list[id] = new Customer(id, info.is_regular, info.recent_ordered_menu);
     }
 
     static login(id, pw) {
-        //console.log(`file load from ./data/users/${id}.json`);
+        console.log(`file load from ./data/users/${id}.json`);
         
         try {
-            const user_str = fs.readFileSync(`./data/users/${id}.json`, 'utf8');
+            const user_str = fs.readFileSync(`${data_path}users/${id}.json`, 'utf8');
             const user = JSON.parse(user_str);
             
             if(user['pw'] !== pw) {
@@ -58,7 +60,6 @@ export default class Member_management {
         return this.#_activated_member_list;
     }
 }
-
 /*
 Member_management.signup(
         'wak',
@@ -69,7 +70,8 @@ Member_management.signup(
             'is_regular': false,
             'call_cnt': 0
         });
-console.log(Member_management.activated_member_list);
+//console.log(Member_management.activated_member_list);
+
 Member_management.deactivate('wak');
 console.log(Member_management.activated_member_list);
 
