@@ -2,7 +2,7 @@
   "name": "mr.great-se-project",
   "version": "1.0.0",
   "description": "미스터 대박 디너 서비스를 위한 프로젝트입니다.\r 소프트웨어공학 팀 프로젝트로 진행했습니다.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,6 +14,10 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kir3i/Mr.Great-SE-Project/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
   },
   "homepage": "https://github.com/kir3i/Mr.Great-SE-Project#readme"
 }

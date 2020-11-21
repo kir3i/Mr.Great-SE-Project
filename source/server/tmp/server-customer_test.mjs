@@ -12,8 +12,12 @@ import Order_list from "./modules/Order_list.mjs";
 import Order from "./modules/Order.mjs";
 import Order_history from "./modules/Order_history.mjs";
 
-/* testcode */
 
+
+
+
+/* testcode */
+/*
 // Menu test
 let m = new Menu('1', '2', '3');
 console.log(m);
@@ -107,3 +111,5 @@ console.log("==hisotry")
 for (let x of Order_history.order_history) {
     console.log(x.order_id, x.menu);
 }
+
+*/

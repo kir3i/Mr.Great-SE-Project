@@ -1,8 +1,11 @@
 "use strict"
 
+import { json } from 'body-parser';
 import fs from 'fs';
+import path from 'path';
 import Customer from "./Customer.mjs";
 
+const data_path = './source/server/modules/data/';
 export default class Member_management {
     static #_activated_member_list = {};
 
@@ -13,22 +16,30 @@ export default class Member_management {
             'info': info
         };
         
+        user.info = JSON.parse(user.info);
         const userJson = JSON.stringify(user);
 
         try {
-            fs.writeFileSync(`./data/users/${id}.json`, userJson, 'utf8');
+            if(fs.existsSync(`${data_path}users/${id}.json`))
+                throw('Signup Error: already exist id');
+            fs.writeFileSync(`${data_path}users/${id}.json`, userJson, 'utf8');
         } catch(e) {
             console.log(e);
+            return null;
         }
 
-        this.#_activated_member_list[id] = new Customer(id, false, null);
+        this.#_activated_member_list[id] = new Customer(id, user.info.is_regular, user.info.recent_ordered_menu);
+        return this.activated_member_list[id];
     }
 
+    // login
+    // id: string, pw: string
+    // returnType: 성공 시 Customer, 실패 시 null
     static login(id, pw) {
-        //console.log(`file load from ./data/users/${id}.json`);
+        console.log(`file load from ./data/users/${id}.json`);
         
         try {
-            const user_str = fs.readFileSync(`./data/users/${id}.json`, 'utf8');
+            const user_str = fs.readFileSync(`${data_path}users/${id}.json`, 'utf8');
             const user = JSON.parse(user_str);
             
             if(user['pw'] !== pw) {
@@ -46,8 +57,7 @@ export default class Member_management {
             console.log(e);
             return null;
         }
-
-        return id;
+        return JSON.stringify(this.activated_member_list[id]);
     }
 
     static deactivate(id) {
@@ -58,7 +68,6 @@ export default class Member_management {
         return this.#_activated_member_list;
     }
 }
-
 /*
 Member_management.signup(
         'wak',
@@ -69,7 +78,8 @@ Member_management.signup(
             'is_regular': false,
             'call_cnt': 0
         });
-console.log(Member_management.activated_member_list);
+//console.log(Member_management.activated_member_list);
+
 Member_management.deactivate('wak');
 console.log(Member_management.activated_member_list);
 

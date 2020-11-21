@@ -5,7 +5,7 @@ import Order_status from './Order_status.mjs';
 import Order_history from './Order_history.mjs';
 
 export default class Order_list {
-    static #_waiting_order_list = {};
+    static #_waiting_order_list = {};   // {order_id: Order 객체}
     static #_cooking_order_list = {};
     static #_delivering_order_list = {};
 
