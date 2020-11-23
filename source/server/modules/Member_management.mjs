@@ -16,7 +16,6 @@ export default class Member_management {
             'info': info
         };
         
-        user.info = JSON.parse(user.info);
         const userJson = JSON.stringify(user);
 
         try {

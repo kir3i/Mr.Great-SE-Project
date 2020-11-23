@@ -1,6 +1,5 @@
 "use strict"
 
-import Order from './Order.mjs';
 import Order_status from './Order_status.mjs';
 import Order_history from './Order_history.mjs';
 

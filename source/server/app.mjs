@@ -55,10 +55,12 @@ app.get('/register', (req, res) => {
 app.post('/register', (req, res) => {
     const { id, pw, info } = req.body;
     console.log(id, pw, info);
-
+    
+    //JSON parsing
+    const infoJSON = JSON.parse(info);
     // try register
     // 성공 시 Customer 객체 반환, 실패 시 null 반환
-    const ret = Member_management.signup(id, pw, info);
+    const ret = Member_management.signup(id, pw, infoJSON);
     res.send(ret);
 });
 
@@ -73,9 +75,32 @@ app.get('/menu', (req, res) => {
 });
 
 // 고객 - 주문
+// 수신: {menu, style, food_amount_list, amount, additional_info}
+// 반환: 응답(성공 시 true, 실패 시 false)
 app.post('/menu', (req, res) => {
-    const { style, info } = req.body;
-    console.log(style, info);
+    const { id, menu, style, food_amount_list, amount, additional_info } = req.body;
+    console.log(id, menu, style, food_amount_list, amount, additional_info);
+    
+    // JSON parsing
+    const food_amount_list_JSON = JSON.parse(food_amount_list);
+    const additional_info_JSON = JSON.parse(additional_info);
+    // Customer 객체가 가진 Basket에 새로운 Order를 추가
+    // 동시에 Order_list에도 추가함 (Order 생성자에서 호출)
+    try {
+        Member_management.activated_member_list[id].basket.add_order(
+            menu, style, food_amount_list_JSON, amount, additional_info_JSON
+        );
+        
+        // DEBUG START
+        const ret = Member_management.activated_member_list[id].basket.order_list['0']
+        console.log(ret.menu, ret.style, ret.food_amount_list, ret.amount, ret.additional_info);
+        console.log(ret.get_price())
+        // DEBUG END
+        res.send(true);
+    } catch(e) {
+        console.log(e);
+        res.send(false);
+    }
 });
 
 // 고객 - 장바구니 페이지

@@ -2,6 +2,7 @@
 
 import Basic_info from './Basic_info.mjs';
 import Order_status from './Order_status.mjs';
+import Order_list from './Order_list.mjs';
 
 const price_of_style = {
     'simple': 0,
@@ -28,6 +29,7 @@ export default class Order {
         this.#_status = Order_status.WAITING;
         this.#_order_id = Order.order_count;
         Order.inc_count();
+        Order_list.add_order(this);
     }
 
     static get order_count() {
@@ -50,7 +52,7 @@ export default class Order {
         return this.#_style;
     }
 
-    get foods_amount_list() {
+    get food_amount_list() {
         return this.#_food_amount_list;
     }
 
@@ -63,12 +65,15 @@ export default class Order {
     }
 
     get_price() {
-        let price = ( (menu.price) + price_of_style(this.#_style) );
-        for (const food in this.#_food_amount_list) {
-            if (this.#_food_amount_list[food] > 1)
-                price += (menu.food_list[food])*(this.#_food_amount_list[food] - 1);
+        let price = this.menu.price + price_of_style[this.style];
+        for (const food in this.food_amount_list) {
+            if (this.food_amount_list[food] > 1) {
+                price += (this.menu.food_list[food])*(this.food_amount_list[food] - 1);
+                // console.log(this.menu.food_list[food], this.food_amount_list[food] - 1);
+            }
         }
-        price *= this.#_amount;
+        price *= this.amount;
+        return price;
     }
 
     set status(order_status) {

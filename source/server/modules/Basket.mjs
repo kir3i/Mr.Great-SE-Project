@@ -13,6 +13,6 @@ export default class Basket {
             amount, 
             additional_info
         );
-        this.order_list[new_order.id] = new_order;
+        this.order_list[new_order.order_id] = new_order;
     }
 }
