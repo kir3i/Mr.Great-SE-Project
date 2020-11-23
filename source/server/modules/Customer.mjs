@@ -19,8 +19,8 @@ export default class Customer {
 
         // 결제가 완료되었을 시 Order_list로 넘김
         //if(ok) {}
-        for (const o of this.basket.order_list) {
-            Order_list.add_order(o);
+        for (const oi in this.basket.order_list) {
+            Order_list.add_order(basket.order_list[o]);
         }
 
         // DB에 입력

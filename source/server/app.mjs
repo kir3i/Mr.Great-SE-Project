@@ -92,9 +92,9 @@ app.post('/menu', (req, res) => {
         );
         
         // DEBUG START
-        const ret = Member_management.activated_member_list[id].basket.order_list['0']
-        console.log(ret.menu, ret.style, ret.food_amount_list, ret.amount, ret.additional_info);
-        console.log(ret.get_price())
+        // const ret = Member_management.activated_member_list[id].basket.order_list['0']
+        // console.log(ret.menu, ret.style, ret.food_amount_list, ret.amount, ret.additional_info);
+        // console.log(ret.get_price())
         // DEBUG END
         res.send(true);
     } catch(e) {
@@ -108,12 +108,26 @@ app.get('/basket', (req, res) => {
    res.sendFile(path.join(__dirname, 'source', 'client', 'basket.html'));
 });
 
-// 고객 - 장바구니 목록 리턴
+// 고객 - 장바구니 확인
+// 수신: {id}
+// 반환: Basket 객체 (실패 시 null)
 app.get('/basketList', (req, res) => {
     const { id } = req.body;
 
-    // TODO: id에 해당하는 장바구니 리턴 NEED TEST
     const ret = Member_management.activated_member_list[id].basket;
+    // console.log(ret.order_list);
+    res.send(ret);
+});
+
+// 고객 - 장바구니에서 특정 주문 제외
+// 수신: {id, order_id}
+// 반환: 응답(성공 시 true, 실패 시 false)
+app.post('/basketRefresh', (req, res) => {
+    const { id, order_id } = req.body;
+    console.log(id, order_id);
+
+    // 삭제 수행
+    const ret = Member_management.activated_member_list[id].basket.remove_order(order_id);
     res.send(ret);
 });
 

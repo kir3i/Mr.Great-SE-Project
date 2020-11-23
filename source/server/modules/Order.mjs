@@ -12,56 +12,20 @@ const price_of_style = {
 
 export default class Order {
     static #_order_count = 0;
-    #_menu; // Menu 객체
-    #_style;
-    #_food_amount_list; // {'name': amount(int)}
-    #_amount;
-    #_additional_info;
-    #_status;
-    #_order_id;
 
     constructor(menu, style, food_amount_list, amount, additional_info) {
-        this.#_menu = Basic_info.menu_list[menu];
-        this.#_style = style;   // string
-        this.#_food_amount_list = food_amount_list; // {food(string): amount(int)}
-        this.#_amount = amount;
-        this.#_additional_info = additional_info;
-        this.#_status = Order_status.WAITING;
-        this.#_order_id = Order.order_count;
+        this.menu = Basic_info.menu_list[menu];
+        this.style = style;   // string
+        this.food_amount_list = food_amount_list; // {food(string): amount(int)}
+        this.amount = amount;
+        this.additional_info = additional_info;
+        this.status = Order_status.WAITING;
+        this.order_id = Order.#_order_count;
         Order.inc_count();
-        Order_list.add_order(this);
-    }
-
-    static get order_count() {
-        return this.#_order_count;
     }
 
     static inc_count() {
         this.#_order_count += 1;
-    }
-    
-    get order_id() {
-        return this.#_order_id;
-    }
-
-    get menu() {
-        return this.#_menu;
-    }
-
-    get style() {
-        return this.#_style;
-    }
-
-    get food_amount_list() {
-        return this.#_food_amount_list;
-    }
-
-    get amount() {
-        return this.#_amount;
-    }
-
-    get additional_info() {
-        return this.#_additional_info;
     }
 
     get_price() {
@@ -75,9 +39,4 @@ export default class Order {
         price *= this.amount;
         return price;
     }
-
-    set status(order_status) {
-        this.#_status = order_status;
-    }
-    
 }
