@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 // 반환: Customer 객체 or null
 app.post('/', (req, res) => {
     const { id, pw } = req.body;
-    console.log(id, pw);
+    console.log('POST /:', id, pw);
 
     // try login
     // 성공 시 Customer 객체 반환, 실패 시 null 반환
@@ -79,7 +79,7 @@ app.get('/menu', (req, res) => {
 // 반환: 응답(성공 시 true, 실패 시 false)
 app.post('/menu', (req, res) => {
     const { id, menu, style, food_amount_list, amount, additional_info } = req.body;
-    console.log(id, menu, style, food_amount_list, amount, additional_info);
+    console.log('POST /menu:', id, menu, style, food_amount_list, amount, additional_info);
     
     // JSON parsing
     const food_amount_list_JSON = JSON.parse(food_amount_list);
@@ -113,7 +113,9 @@ app.get('/basket', (req, res) => {
 // 반환: Basket 객체 (실패 시 null)
 app.get('/basketList', (req, res) => {
     const { id } = req.body;
+    console.log('GET /basketList:', id);
 
+    // 장바구니 반환
     const ret = Member_management.activated_member_list[id].basket;
     // console.log(ret.order_list);
     res.send(ret);
@@ -124,10 +126,22 @@ app.get('/basketList', (req, res) => {
 // 반환: 응답(성공 시 true, 실패 시 false)
 app.post('/basketRefresh', (req, res) => {
     const { id, order_id } = req.body;
-    console.log(id, order_id);
+    console.log('POST /basketRefresh:', id, order_id);
 
     // 삭제 수행
     const ret = Member_management.activated_member_list[id].basket.remove_order(order_id);
+    res.send(ret);
+});
+
+// 고객 - 최종결제
+// 수신: {id}
+// 반환: 응답(성공 시 true, 실패 시 false)
+app.post('/payment', (req, res) => {
+    const { id, pay_info } = req.body;
+    console.log('POST /payment:', id, pay_info);
+
+    // 결제 수행
+    const ret = Member_management.activated_member_list[id].pay(pay_info);
     res.send(ret);
 });
 

@@ -22,6 +22,9 @@ export default class Order {
         this.status = Order_status.WAITING;
         this.order_id = Order.#_order_count;
         Order.inc_count();
+        
+        // 가격 계산
+        this.price = this.get_price();
     }
 
     static inc_count() {
