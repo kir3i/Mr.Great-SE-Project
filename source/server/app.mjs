@@ -207,6 +207,10 @@ app.get('/order_history', (req, res) => {
 // 직원 - 과거 주문 이력 조회
 app.get('/history', (req, res) => {
     console.log('GET /history');
+    
+    // 과거 주문 이력 반환
+    console.log(Order_history.order_history);
+    res.send(Order_history.order_history);
 });
 
 

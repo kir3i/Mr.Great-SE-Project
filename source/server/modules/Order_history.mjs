@@ -1,7 +1,5 @@
 "use strict"
 
-import Order from './Order.mjs';
-
 export default class Order_history {
     static #_order_history = [];
 
@@ -11,5 +9,8 @@ export default class Order_history {
 
     static add_order(order) {
         this.#_order_history.push(order);
+        if(this.#_order_history.length > 10) {
+            this.#_order_history.shift();
+        }
     }
 }
