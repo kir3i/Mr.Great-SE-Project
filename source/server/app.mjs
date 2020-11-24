@@ -28,6 +28,7 @@ app.use(bodyParser.json());
 
 // 메인 페이지 GET
 app.get('/', (req, res) => {
+    console.log('GET /');
     res.sendFile(path.join(__dirname, 'source', 'client', 'index.html'));
 });
 
@@ -44,8 +45,12 @@ app.post('/', (req, res) => {
     res.send(ret);
 });
 
+
+/* 고객 제공 API */
+
 // 회원가입 페이지 GET
 app.get('/register', (req, res) => {
+    console.log('GET /register');
     res.sendFile(path.join(__dirname, 'source', 'client', 'register.html'));
 });
 
@@ -54,7 +59,7 @@ app.get('/register', (req, res) => {
 // 반환: Customer 객체 or null
 app.post('/register', (req, res) => {
     const { id, pw, info } = req.body;
-    console.log(id, pw, info);
+    console.log('POST /register:', id, pw, info);
     
     //JSON parsing
     const infoJSON = JSON.parse(info);
@@ -66,11 +71,13 @@ app.post('/register', (req, res) => {
 
 // 고객 메인 페이지
 app.get('/customer', (req, res) => {
+    console.log('GET /customer');
     res.sendFile(path.join(__dirname, 'source', 'client', 'customer.html'));
 });
 
 // 고객 - 메뉴 페이지
 app.get('/menu', (req, res) => {
+    console.log('GET /menu');
     res.sendFile(path.join(__dirname, 'source', 'client', 'menu.html'));
 });
 
@@ -105,7 +112,8 @@ app.post('/menu', (req, res) => {
 
 // 고객 - 장바구니 페이지
 app.get('/basket', (req, res) => {
-   res.sendFile(path.join(__dirname, 'source', 'client', 'basket.html'));
+    console.log('GET /basket');
+    res.sendFile(path.join(__dirname, 'source', 'client', 'basket.html'));
 });
 
 // 고객 - 장바구니 확인
@@ -145,19 +153,60 @@ app.post('/payment', (req, res) => {
     res.send(ret);
 });
 
+/* 직원 제공 API */
+
 // 직원 메인 페이지
 app.get('/staff', (req, res) => {
-  res.sendFile(path.join(__dirname, 'source', 'client', 'staff.html'));
+    console.log('GET /staff');
+    res.sendFile(path.join(__dirname, 'source', 'client', 'staff.html'));
 });
 
 // 직원 - 현재 주문 페이지
 app.get('/now_ordered', (req, res) => {
-  res.sendFile(path.join(__dirname, 'source', 'client', 'now_ordered.html'));
+    console.log('GET /now_ordered');
+    res.sendFile(path.join(__dirname, 'source', 'client', 'now_ordered.html'));
+});
+
+// 직원 - 활성화된 주문 목록 조회
+// 수신: 없음
+// 반환: Order_list 객체
+app.get('/orderlist', (req, res) => {
+    console.log('GET /orderlist');
+    
+    // Order_list 객체 반환
+    const ret = {
+        waiting_order_list: Order_list.waiting_order_list,
+        cooking_order_list: Order_list.cooking_order_list,
+        delivering_order_list: Order_list.delivering_order_list
+    };
+    res.send(ret);
+});
+
+// 직원 - 주문 상태 변경
+// 수신: { order_id, from, to }
+// 반환: 응답(성공 시 true, 실패 시 false)
+app.post('/changeOrder', (req, res) => {
+    const { order_id, from, to } = req.body;
+
+    // 주문 상태 변경
+    try {
+        Order_list.change_order_status(order_id, from, to);
+        res.send(true);
+    } catch (e) {
+        console.log(e);
+        res.send(false);    // 옳지 않은 매개변수가 주어진 경우 false 반환
+    }
 });
 
 // 직원 - 완료 주문 이력 페이지
 app.get('/order_history', (req, res) => {
-  res.sendFile(path.join(__dirname, 'source', 'client', 'order_history.html'));
+    console.log('GET /order_history');
+    res.sendFile(path.join(__dirname, 'source', 'client', 'order_history.html'));
+});
+
+// 직원 - 과거 주문 이력 조회
+app.get('/history', (req, res) => {
+    console.log('GET /history');
 });
 
 

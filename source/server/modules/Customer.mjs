@@ -1,7 +1,6 @@
 "use strict";
 
 import fs from 'fs'
-import { type } from 'os';
 import Basket from './Basket.mjs';
 import Order_list from './Order_list.mjs';
 
@@ -34,7 +33,7 @@ export default class Customer {
             user.info.is_regular = true;
         
         // 주문 내역에 추가
-        console.log(this.recent_ordered_menu_list);
+        // console.log(this.recent_ordered_menu_list);
         console.log(this.basket.order_list);
         let new_history = [];
         for (const o in this.basket.order_list) {
