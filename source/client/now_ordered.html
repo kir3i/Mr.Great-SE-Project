@@ -75,7 +75,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">최문기 님</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">관리자</span>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -107,44 +107,14 @@
                                 <th scope="col">주문 내역</th>
                               </tr>
                             </thead>
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <div class="custom-control custom-checkbox">
-                                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                      <label class="custom-control-label" for="customCheck1">1</label>
-                                  </div>
-                                </td>
-                                <td>뫄뫄/원흥동 무슨 아파트 무슨 동</td>
-                                <td>샴페인 축제 디너/디럭스</td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="custom-control custom-checkbox">
-                                      <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                      <label class="custom-control-label" for="customCheck2">2</label>
-                                  </div>
-                                </td>
-                                <td>뫄뫄/원흥동 무슨 아파트 무슨 동</td>
-                                <td>샴페인 축제 디너/디럭스</td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="custom-control custom-checkbox">
-                                      <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                      <label class="custom-control-label" for="customCheck3">3</label>
-                                  </div>
-                                </td>
-                                <td>뫄뫄/원흥동 무슨 아파트 무슨 동</td>
-                                <td>샴페인 축제 디너/디럭스</td>
-                              </tr>
+                            <tbody id="waiting_order_list">
                             </tbody>
                           </table>
                         </div>
                       </div>
                       <div class="row justify-content-center">
                         <div class="col-1">
-                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#payModal">
+                            <a class="btn btn-primary" onclick="cook_btn_event_listener()">
                                 ▼
                             </a>
                         </div>
@@ -164,37 +134,7 @@
                                 <th scope="col">주문 내역</th>
                               </tr>
                             </thead>
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <div class="custom-control custom-checkbox">
-                                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                      <label class="custom-control-label" for="customCheck1">1</label>
-                                  </div>
-                                </td>
-                                <td>뫄뫄/원흥동 무슨 아파트 무슨 동</td>
-                                <td>샴페인 축제 디너/디럭스</td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="custom-control custom-checkbox">
-                                      <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                      <label class="custom-control-label" for="customCheck2">2</label>
-                                  </div>
-                                </td>
-                                <td>뫄뫄/원흥동 무슨 아파트 무슨 동</td>
-                                <td>샴페인 축제 디너/디럭스</td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="custom-control custom-checkbox">
-                                      <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                      <label class="custom-control-label" for="customCheck3">3</label>
-                                  </div>
-                                </td>
-                                <td>뫄뫄/원흥동 무슨 아파트 무슨 동</td>
-                                <td>샴페인 축제 디너/디럭스</td>
-                              </tr>
+                            <tbody id="cooking_order_list">
                             </tbody>
                           </table>
                         </div>
@@ -202,7 +142,7 @@
 
                       <div class="row justify-content-center">
                         <div class="col-1">
-                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#payModal">
+                            <a class="btn btn-primary" onclick="delivery_btn_event_listener()">
                                 ▼
                             </a>
                         </div>
@@ -225,44 +165,14 @@
                                 <th scope="col">주문 내역</th>
                               </tr>
                             </thead>
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <div class="custom-control custom-checkbox">
-                                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                      <label class="custom-control-label" for="customCheck1">1</label>
-                                  </div>
-                                </td>
-                                <td>뫄뫄/원흥동 무슨 아파트 무슨 동</td>
-                                <td>샴페인 축제 디너/디럭스</td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="custom-control custom-checkbox">
-                                      <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                      <label class="custom-control-label" for="customCheck2">2</label>
-                                  </div>
-                                </td>
-                                <td>뫄뫄/원흥동 무슨 아파트 무슨 동</td>
-                                <td>샴페인 축제 디너/디럭스</td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="custom-control custom-checkbox">
-                                      <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                      <label class="custom-control-label" for="customCheck3">3</label>
-                                  </div>
-                                </td>
-                                <td>뫄뫄/원흥동 무슨 아파트 무슨 동</td>
-                                <td>샴페인 축제 디너/디럭스</td>
-                              </tr>
+                            <tbody id="delivering_order_list">
                             </tbody>
                           </table>
                         </div>
                       </div>
                       <div class="row justify-content-center">
                         <div class="col-2">
-                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#payModal">
+                            <a class="btn btn-primary" onclick="complete_btn_event_listener()">
                                 Complete!
                             </a>
                         </div>
@@ -327,13 +237,210 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script>
+    fetch('/orderlist', {
+      method: 'GET',
+      headers: {'Content-Type': 'application/json'},
+    })
+    .then(res => res.json())
+    .then(ret => {
+      waiting_order_list = ret.waiting_order_list;
+      cooking_order_list = ret.cooking_order_list;
+      delivering_order_list = ret.delivering_order_list;
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+      for (let order_id in waiting_order_list) {
+        let order = waiting_order_list[order_id];
+        let food_info = "(임시) 매뉴 이름" //order.menu.name;
+        food_info = food_info + "(" + order.style + ", " + order.amount + "개) / ";
+        for (let k in order.food_amount_list) {
+          food_info = food_info + k + "(" + order.food_amount_list[k] + ") ";
+        }
+        
+        new_tr = document.createElement("tr");
+        document.getElementById("waiting_order_list").appendChild(new_tr);
 
+        // order_id td
+        new_td = document.createElement("td");
+        new_tr.appendChild(new_td);
+
+        // checkbox input
+        new_input = document.createElement("input");
+        new_input.setAttribute("type", "checkbox");
+        new_input.setAttribute("id", order_id);
+        new_td.appendChild(new_input);
+
+        new_label = document.createElement("div");
+        new_label.innerHTML = order_id;
+        new_td.appendChild(new_label);
+
+        // additional_info.to
+        new_td2 = document.createElement("td");
+        new_td2.innerHTML = order.additional_info.to;
+        new_tr.appendChild(new_td2);
+
+        // food_info
+        new_td3 = document.createElement("td");
+        new_td3.innerHTML = food_info;
+        new_tr.appendChild(new_td3);
+      }
+
+      for (let order_id in cooking_order_list) {
+        let order = cooking_order_list[order_id];
+        let food_info = "(임시) 매뉴 이름" //order.menu.name;
+        food_info = food_info + "(" + order.style + ", " + order.amount + "개) / ";
+        for (let k in order.food_amount_list) {
+          food_info = food_info + k + "(" + order.food_amount_list[k] + ") ";
+        }
+        
+        new_tr = document.createElement("tr");
+        document.getElementById("cooking_order_list").appendChild(new_tr);
+
+        // order_id td
+        new_td = document.createElement("td");
+        new_tr.appendChild(new_td);
+
+        // checkbox input
+        new_input = document.createElement("input");
+        new_input.setAttribute("type", "checkbox");
+        new_input.setAttribute("id", order_id);
+        new_td.appendChild(new_input);
+
+        new_label = document.createElement("div");
+        new_label.innerHTML = order_id;
+        new_td.appendChild(new_label);
+
+        // additional_info.to
+        new_td2 = document.createElement("td");
+        new_td2.innerHTML = order.additional_info.to;
+        new_tr.appendChild(new_td2);
+
+        // food_info
+        new_td3 = document.createElement("td");
+        new_td3.innerHTML = food_info;
+        new_tr.appendChild(new_td3);
+      }
+
+      for (let order_id in delivering_order_list) {
+        let order = delivering_order_list[order_id];
+        let food_info = "(임시) 매뉴 이름" //order.menu.name;
+        food_info = food_info + "(" + order.style + ", " + order.amount + "개) / ";
+        for (let k in order.food_amount_list) {
+          food_info = food_info + k + "(" + order.food_amount_list[k] + ") ";
+        }
+        
+        new_tr = document.createElement("tr");
+        document.getElementById("delivering_order_list").appendChild(new_tr);
+
+        // order_id td
+        new_td = document.createElement("td");
+        new_tr.appendChild(new_td);
+
+        // checkbox input
+        new_input = document.createElement("input");
+        new_input.setAttribute("type", "checkbox");
+        new_input.setAttribute("id", order_id);
+        new_td.appendChild(new_input);
+
+        new_label = document.createElement("div");
+        new_label.innerHTML = order_id;
+        new_td.appendChild(new_label);
+
+        // additional_info.to
+        new_td2 = document.createElement("td");
+        new_td2.innerHTML = order.additional_info.to;
+        new_tr.appendChild(new_td2);
+
+        // food_info
+        new_td3 = document.createElement("td");
+        new_td3.innerHTML = food_info;
+        new_tr.appendChild(new_td3);
+      }
+
+    })
+    .catch(error => {
+      alert(error);
+    })
+    </script>
+
+    <script>
+      function cook_btn_event_listener() {
+        let table = document.getElementById("waiting_order_list");
+        let inputs = table.getElementsByTagName("input");
+        for (let input of inputs) {
+          if (!input.checked) continue;
+          order_id = input.id;
+          fetch('/changeOrder', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              order_id : order_id,
+              from : "WAITING",
+              to : "COOKING"
+            })
+              })
+              .then(res => res.json())
+              .then(ret => {
+                  alert("이동되었습니다.");
+                  location.reload();
+              })
+              .catch(e => {
+                alert(e);
+              })
+        }
+      }
+
+        function delivery_btn_event_listener() {
+          let table = document.getElementById("cooking_order_list");
+          let inputs = table.getElementsByTagName("input");
+          for (let input of inputs) {
+            if (!input.checked) continue;
+            order_id = input.id;
+            fetch('/changeOrder', {
+              method: 'POST',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({
+                order_id : order_id,
+                from : "COOKING",
+                to : "DELIVERING"
+              })
+                })
+                .then(res => res.json())
+                .then(ret => {
+                    alert("이동되었습니다.");
+                    location.reload();
+                })
+                .catch(e => {
+                  alert(e);
+                })
+          }  
+        }
+
+        function complete_btn_event_listener() {
+          let table = document.getElementById("delivering_order_list");
+          let inputs = table.getElementsByTagName("input");
+          for (let input of inputs) {
+            if (!input.checked) continue;
+            order_id = input.id;
+            fetch('/changeOrder', {
+              method: 'POST',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({
+                order_id : order_id,
+                from : "DELIVERING",
+                to : "COMPLETED"
+              })
+                })
+                .then(res => res.json())
+                .then(ret => {
+                    alert("History로 이동되었습니다.");
+                    location.reload();
+                })
+                .catch(e => {
+                  alert(e);
+                })
+          }
+        }
+    </script>
 </body>
 
 </html>
