@@ -94,6 +94,11 @@ app.post('/menu', (req, res) => {
     // Customer 객체가 가진 Basket에 새로운 Order를 추가
     // 동시에 Order_list에도 추가함 (Order 생성자에서 호출)
     try {
+        //debug
+        console.log(id);
+        console.log(Member_management.activated_member_list[id].id)
+        console.log(Member_management.activated_member_list[id].is_regular)
+        console.log(Member_management.activated_member_list[id].recent_ordered_menu_list)
         Member_management.activated_member_list[id].basket.add_order(
             menu, style, food_amount_list_JSON, amount, additional_info_JSON
         );

@@ -32,6 +32,7 @@ export default class Order {
     }
 
     get_price() {
+        console.log(this.menu);
         let price = this.menu.price + price_of_style[this.style];
         for (const food in this.food_amount_list) {
             if (this.food_amount_list[food] > 1) {

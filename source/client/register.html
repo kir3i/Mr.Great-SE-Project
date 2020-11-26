@@ -2,58 +2,46 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SB Admin 2 - Register</title>
-
-    <!-- Custom fonts for this template-->
+    <title>회원가입</title>
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
-    <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/custom_coloring.css">
-
 </head>
 
 <body>
-
     <div class="container">
-
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
-                <!-- Nested Row within Card Body -->
                 <div class="row justify-content-center">
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">회원가입</h1>
                             </div>
-                            <form class="user">
+                            <form class="user" method="GET" onsubmit="signup_btn_event_listener()">
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="아이디">
+                                    <input type="id" class="form-control form-control-user"
+                                        id="inputId" placeholder="아이디">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="비밀번호">
+                                            id="inputPassword" placeholder="비밀번호">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="비밀번호 확인">
+                                            id="repeatPassword" placeholder="비밀번호 확인">
                                     </div>
                                 </div>
-                                <a href="/" class="btn btn-secondary btn-user btn-block">
+                                <button type="submit" class="btn btn-secondary btn-user btn-block">
                                     회원가입
-                                </a>
+                                </button>
                             </form>
                             <hr>
                             <div class="text-center">
@@ -77,6 +65,39 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-</body>
+    <script>
+        function signup_btn_event_listener() {
+            let id = document.getElementById("inputId").value;
+            let pw = document.getElementById("inputPassword").value;
+            let rpw = document.getElementById("repeatPassword").value;
+            var info = JSON.stringify({
+                is_checked : false,
+                is_customer : true,
+                recent_ordered_menu : [],
+                is_regular : false,
+                call_cnt : 0
+            });
 
+            if (!id) alert("아이디를 입력해주세요.");
+            else if (!pw) alert("비밀번호를 입력해주세요.");
+            else if (!rpw) alert("비밀번호 확인을 입력해주세요.");
+            else if (pw != rpw) alert("비밀번호가 일치하지 않습니다.");
+            else {
+                fetch('/register', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({id, pw, info})
+                })
+                .then(res => res.json())
+                .then(ret => {
+                    alert("성공적으로 회원가입 되었습니다.");
+                    location = "/";
+                })
+                .catch(error => {
+                    alert("이미 있는 아이디입니다.");
+                })
+            }
+        }
+    </script>
+</body>
 </html>
