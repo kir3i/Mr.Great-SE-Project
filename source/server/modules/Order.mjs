@@ -20,11 +20,15 @@ export default class Order {
         this.amount = amount;
         this.additional_info = additional_info;
         this.status = Order_status.WAITING;
-        this.order_id = Order.#_order_count;
+        this.order_id = Order.order_count;
         Order.inc_count();
         
         // 가격 계산
         this.price = this.get_price();
+    }
+
+    static get order_count() {
+        return this.#_order_count;
     }
 
     static inc_count() {
@@ -32,7 +36,6 @@ export default class Order {
     }
 
     get_price() {
-        console.log(this.menu);
         let price = this.menu.price + price_of_style[this.style];
         for (const food in this.food_amount_list) {
             if (this.food_amount_list[food] > 1) {

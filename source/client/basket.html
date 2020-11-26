@@ -76,7 +76,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">최문기 님</span>
+                                <span id="customer_id" class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -97,48 +97,12 @@
 
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div id="content_basket" class="container-fluid">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">장바구니</h1>
                     </div>
-
-                    <div class="row m-2">
-                        <div class="col">
-                            <div class="card">
-                                <h5 class="card-header">프렌치 디너</h5>
-                                <div class="card-body">
-                                  <h5 class="card-title">와인 2잔, 샐러드 0개</h5>
-                                  <p class="card-text">문기 마을, 문기 아파트 23층 102호</p>
-                                  <a href="#" class="btn btn-info">제외하기</a>
-                                </div>
-                              </div>
-                        </div>
-                    </div>
-
-                    <div class="row m-2">
-                        <div class="col">
-                            <div class="card">
-                                <h5 class="card-header">잉글리시 디너</h5>
-                                <div class="card-body">
-                                  <h5 class="card-title">에그 스크램블 1개</h5>
-                                  <p class="card-text">문기 마을, 문기 아파트 23층 102호</p>
-                                  <a href="#" class="btn btn-info">제외하기</a>
-                                </div>
-                              </div>
-                        </div>
-                    </div>
-
-                    <!-- Content Row -->
-                    <div class="row m-2">
-                        <div class="col">
-                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#payModal">
-                                결제 수단 선택
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Content Row -->
 
                 </div>
                 <!-- /.container-fluid -->
@@ -200,31 +164,19 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        <fieldset class="form-group">
-                            <div class="row">
-                              <legend class="col-form-label col-sm-3 pt-0">결제 수단</legend>
-                              <div class="col-sm-9">
-                                <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                                  <label class="form-check-label" for="gridRadios1">
-                                    현금
-                                  </label>
-                                </div>
-                                <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                  <label class="form-check-label" for="gridRadios2">
-                                    카드
-                                  </label>
-                                </div>
-                              </div>
-                            </div>
-                          </fieldset>
+                        <div class="form-group row">
+                            <label class="col-sm-3">결제 수단</label>
+                            <select id="pay_info" class="form-control col-sm-2 ml-3">
+                                <option selected>현금</option>
+                                <option>카드</option>
+                            </select>
+                        </div>
                     </form>
 
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                    <a class="btn btn-primary" href="./customer">주문 완료</a>
+                    <a class="btn btn-primary" onclick="pay_btn_event_listener()">주문 완료</a>
                 </div>
             </div>
         </div>
@@ -243,6 +195,139 @@
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>
 
+    <!-- control cookies -->
+    <script src="js/cookie.js"></script>
+    <!-- main js -->
+    <script>
+        let user = getCookie("user");
+        user = JSON.parse(user);
+        // id 갱신
+        document.getElementById("customer_id").innerHTML = user.id + "님";
+
+        // 장바구니 갱신
+        let order_list = {};
+        fetch('/basketList', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({id : user.id})
+        })
+        .then(res => res.json())
+        .then(ret => {
+            basket = ret;
+            order_list = basket.order_list;
+            for (let i in order_list) {
+                order = order_list[i];
+                order_id = order.order_id;
+                menu_name = "(임시) 메뉴 이름"; // order.menu.name
+                style = order.style;
+                food_amount_list = order.food_amount_list;
+                amount = order.amount;
+                additional_info = order.additional_info;
+
+                new_row = document.createElement("div");
+                new_row.setAttribute("class", "row m-2");
+                document.getElementById("content_basket").appendChild(new_row);
+
+                new_col = document.createElement("div");
+                new_col.setAttribute("class", "col");
+                new_row.appendChild(new_col);
+
+                new_card = document.createElement("div");
+                new_card.setAttribute("class", "card");
+                new_col.appendChild(new_card);
+
+                // card-header : menu_name
+                new_menu_name = document.createElement("h5");
+                new_menu_name.setAttribute("class", "card-header");
+                new_menu_name.innerHTML = menu_name;
+                new_card.appendChild(new_menu_name);
+
+                // card-body
+                new_card_body = document.createElement("div");
+                new_card_body.setAttribute("class", "card-body");
+                new_card.appendChild(new_card_body);
+
+                // card-title : amount
+                new_card_title = document.createElement("h5");
+                new_card_title.setAttribute("class", "card-title");
+                let tmp = "[" + style + ", " + amount + "개] ";
+                for (let k in food_amount_list) {
+                    tmp = tmp + k + "(" + food_amount_list[k] + ") ";
+                }
+                new_card_title.innerHTML = tmp;
+                new_card_body.appendChild(new_card_title);
+
+                new_card_text = document.createElement("p");
+                new_card_text.setAttribute("class", "card-text");
+                new_card_text.innerHTML = additional_info.to + ", " + additional_info.until;
+                new_card_body.appendChild(new_card_text);
+                
+                new_button = document.createElement("a");
+                new_button.setAttribute("class", "btn btn-info");
+                new_button.setAttribute("id", order_id);
+                new_button.setAttribute("onclick", "refresh_btn_event_listener(this.id)");
+                new_button.innerHTML = "제외하기"
+                new_card_body.appendChild(new_button);
+            }
+            new_row2 = document.createElement("div");
+            new_row2.setAttribute("class", "row m-2");
+            document.getElementById("content_basket").appendChild(new_row2);
+
+            new_col2 = document.createElement("div");
+            new_col2.setAttribute("class", "col");
+            new_row2.appendChild(new_col2);
+
+            new_button = document.createElement("a");
+            new_button.setAttribute("class", "btn btn-primary");
+            new_button.setAttribute("data-toggle", "modal");
+            new_button.setAttribute("data-target", "#payModal");
+            new_button.innerHTML = "결제 수단 선택"
+            new_col2.appendChild(new_button);
+        })
+        .catch(error => {
+            alert(error);
+        })
+    </script>
+    <script>
+        function refresh_btn_event_listener(order_id) {
+            let user = getCookie("user");
+            user = JSON.parse(user);
+            
+            fetch('/basketRefresh', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    id : user.id,
+                    order_id : order_id
+                })
+            })
+            .then(res => res.json())
+            .then(ret => {
+                alert("제외되었습니다.");
+                location.reload();
+            })
+        }
+
+        function pay_btn_event_listener() {
+            let user = getCookie("user");
+            user = JSON.parse(user);
+            let pay_info = document.getElementById("pay_info").value;
+
+            fetch('/payment', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    id : user.id,
+                    pay_info : pay_info
+                })
+            })
+            .then(res => res.json())
+            .then(ret => {
+                alert("주문되었습니다.");
+                location.reload();
+            })
+        }
+    </script>
 </body>
 
 </html>
