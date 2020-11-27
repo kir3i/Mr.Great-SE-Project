@@ -153,6 +153,17 @@ app.post('/payment', (req, res) => {
     res.send(ret);
 });
 
+// 고객 - Customer 객체 반환
+// 수신: {id}
+// 반환: Customer 객체 or null
+app.post('/customer', (req, res) => {
+    const { id } = req.body;
+
+    // Customer 객체 반환
+    const ret = Member_management.activated_member_list[id];
+    res.send(ret);
+});
+
 /* 직원 제공 API */
 
 // 직원 메인 페이지
