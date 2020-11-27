@@ -11,7 +11,7 @@ const price_of_style = {
 };
 
 export default class Order {
-    static #_order_count = 0;
+    static #_order_count = 1;
 
     constructor(customer_id, menu, style, food_amount_list, amount, additional_info) {
         this.customer_id = customer_id;
@@ -42,6 +42,8 @@ export default class Order {
             if (this.food_amount_list[food] > 1) {
                 price += (this.menu.food_list[food])*(this.food_amount_list[food] - 1);
                 // console.log(this.menu.food_list[food], this.food_amount_list[food] - 1);
+            } else (this.food_amount_list[food] == 0) {
+                price -= (this.menu.food_list[food]);
             }
         }
         price *= this.amount;
