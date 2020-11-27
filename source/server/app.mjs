@@ -95,7 +95,7 @@ app.post('/menu', (req, res) => {
     // 동시에 Order_list에도 추가함 (Order 생성자에서 호출)
     try {
         Member_management.activated_member_list[id].basket.add_order(
-            menu, style, food_amount_list_JSON, amount, additional_info_JSON
+            id, menu, style, food_amount_list_JSON, amount, additional_info_JSON
         );
         
         // DEBUG START

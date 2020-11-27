@@ -13,7 +13,8 @@ const price_of_style = {
 export default class Order {
     static #_order_count = 0;
 
-    constructor(menu, style, food_amount_list, amount, additional_info) {
+    constructor(customer_id, menu, style, food_amount_list, amount, additional_info) {
+        this.customer_id = customer_id;
         this.menu = Basic_info.menu_list[menu];
         this.style = style;   // string
         this.food_amount_list = food_amount_list; // {food(string): amount(int)}

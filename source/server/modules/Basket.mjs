@@ -5,8 +5,9 @@ import Order from "./Order.mjs";
 export default class Basket {
     order_list = {};
 
-    add_order(menu, style, food_amount_list, amount, additional_info) {
+    add_order(customer_id, menu, style, food_amount_list, amount, additional_info) {
         let new_order = new Order(
+            customer_id,
             menu, 
             style, 
             food_amount_list, 
