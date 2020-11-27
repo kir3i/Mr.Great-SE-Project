@@ -29,8 +29,10 @@ export default class Customer {
         const user = JSON.parse(user_str);
         user.info.call_cnt += 1;
         // 단골 손님 등록
-        if (user.info.call_cnt > 3)
+        if (user.info.call_cnt > 3) {
             user.info.is_regular = true;
+            this.is_regular = true;
+        }
         
         // 주문 내역에 추가
         // console.log(this.recent_ordered_menu_list);
