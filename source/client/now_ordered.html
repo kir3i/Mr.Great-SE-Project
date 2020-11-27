@@ -250,7 +250,11 @@
 
       for (let order_id in waiting_order_list) {
         let order = waiting_order_list[order_id];
-        let food_info = "(임시) 매뉴 이름" //order.menu.name;
+        let food_info = order.menu.name;
+        if (food_info == "Vallentine_dinner") food_info = "발렌타인 디너(Valentine dinner)";
+        if (food_info == "French_dinner") food_info = "프렌치 디너(French dinner)";
+        if (food_info == "English_dinner") food_info = "잉글리시 디너(English dinner)";
+        if (food_info == "Champagne_festival_dinner") food_info = "샴페인 축제 디너(Champagne Feast dinner)";
         food_info = food_info + "(" + order.style + ", " + order.amount + "개) / ";
         for (let k in order.food_amount_list) {
           food_info = food_info + k + "(" + order.food_amount_list[k] + ") ";
@@ -286,7 +290,11 @@
 
       for (let order_id in cooking_order_list) {
         let order = cooking_order_list[order_id];
-        let food_info = "(임시) 매뉴 이름" //order.menu.name;
+        let food_info = order.menu.name;
+        if (food_info == "Vallentine_dinner") food_info = "발렌타인 디너(Valentine dinner)";
+        if (food_info == "French_dinner") food_info = "프렌치 디너(French dinner)";
+        if (food_info == "English_dinner") food_info = "잉글리시 디너(English dinner)";
+        if (food_info == "Champagne_festival_dinner") food_info = "샴페인 축제 디너(Champagne Feast dinner)";
         food_info = food_info + "(" + order.style + ", " + order.amount + "개) / ";
         for (let k in order.food_amount_list) {
           food_info = food_info + k + "(" + order.food_amount_list[k] + ") ";
@@ -322,7 +330,11 @@
 
       for (let order_id in delivering_order_list) {
         let order = delivering_order_list[order_id];
-        let food_info = "(임시) 매뉴 이름" //order.menu.name;
+        let food_info = order.menu.name;
+        if (food_info == "Vallentine_dinner") food_info = "발렌타인 디너(Valentine dinner)";
+        if (food_info == "French_dinner") food_info = "프렌치 디너(French dinner)";
+        if (food_info == "English_dinner") food_info = "잉글리시 디너(English dinner)";
+        if (food_info == "Champagne_festival_dinner") food_info = "샴페인 축제 디너(Champagne Feast dinner)";
         food_info = food_info + "(" + order.style + ", " + order.amount + "개) / ";
         for (let k in order.food_amount_list) {
           food_info = food_info + k + "(" + order.food_amount_list[k] + ") ";
@@ -380,7 +392,7 @@
               })
               .then(res => res.json())
               .then(ret => {
-                  alert("이동되었습니다.");
+                  // alert("이동되었습니다.");
                   location.reload();
               })
               .catch(e => {
@@ -406,7 +418,7 @@
                 })
                 .then(res => res.json())
                 .then(ret => {
-                    alert("이동되었습니다.");
+                    // alert("이동되었습니다.");
                     location.reload();
                 })
                 .catch(e => {
@@ -432,7 +444,7 @@
                 })
                 .then(res => res.json())
                 .then(ret => {
-                    alert("History로 이동되었습니다.");
+                    // alert("History로 이동되었습니다.");
                     location.reload();
                 })
                 .catch(e => {

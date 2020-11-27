@@ -649,12 +649,13 @@
         user = JSON.parse(user);
         // id 갱신
         document.getElementById("customer_id").innerHTML = user.id + "님";
+        let recent_ordered_menu = user.recent_ordered_menu_list
         let N = 4;
-        if (N > user.recent_ordered_menu_list.length) {
-            N = user.recent_ordered_menu_list.length;
+        if (N > recent_ordered_menu.length) {
+            N = recent_ordered_menu.length;
         }
         for (let i = 0; i < N; i++) {
-            recent_menu = "Vallentine_dinner"// 임시
+            recent_menu = recent_ordered_menu[i].menu.name;// 임시
             new_col = document.createElement("div");
             new_col.setAttribute("class", "col-xl-3 col-md-6 mb-4");
             document.getElementById("recnet_menu").appendChild(new_col);

@@ -76,9 +76,13 @@
                 .then(res => res.json())
                 .then(ret => {
                     alert("성공적으로 로그인 되었습니다.");
-                    let user = JSON.stringify(ret);
-                    setCookie('user', user);
-                    location = "./customer";
+                    if (ret.id == "admin") {
+                        location = "/staff";
+                    } else {
+                        let user = JSON.stringify(ret);
+                        setCookie('user', user);
+                        location = "./customer";
+                    }
                 })
                 .catch(error => {
                     alert("아이디/비밀번호를 확인해주세요.");
