@@ -99,31 +99,13 @@
                             <table class="table">
                                 <thead>
                                   <tr>
-                                    <th scope="col">order id</th>
-                                    <th scope="col">성함</th>
+                                    <th scope="col">Order ID</th>
+                                    <th scope="col">Customer ID</th>
                                     <th scope="col">주문 내역</th>
                                     <th scope="col">가격</th>
                                   </tr>
                                 </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">331</th>
-                                    <td>Mark</td>
-                                    <td>뫄뫄 디너</td>
-                                    <td>12312원</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">332</th>
-                                    <td>Jacob</td>
-                                    <td>뫄뫄 뫄뫄 디너</td>
-                                    <td>2342134</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">333</th>
-                                    <td>Larry</td>
-                                    <td>뫄</td>
-                                    <td>3454325</td>
-                                  </tr>
+                                <tbody id="history_table">
                                 </tbody>
                               </table>
                         </div>
@@ -185,12 +167,45 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script>
+        fetch('/history', {
+      method: 'GET',
+      headers: {'Content-Type': 'application/json'},
+    })
+    .then(res => res.json())
+    .then(ret => {
+        order_history = ret;
+        for (let order of order_history) {
+            order_id = order.order_id;
+            menu_name = "(임시) 매뉴 이름"; // order.menu.name;
+            price = order.price;
+            
+            //tr
+            new_tr = document.createElement("tr");
+            document.getElementById("history_table").appendChild(new_tr);
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+            // order_id
+            new_th = document.createElement("th");
+            new_th.innerHTML = order_id
+            new_tr.appendChild(new_th);
+
+            // order_id
+            new_td = document.createElement("td");
+            new_td.innerHTML = "(임시) 문기"
+            new_tr.appendChild(new_td);
+
+            // order_id
+            new_td = document.createElement("td");
+            new_td.innerHTML = menu_name
+            new_tr.appendChild(new_td);
+
+            // order_id
+            new_td = document.createElement("td");
+            new_td.innerHTML = price;
+            new_tr.appendChild(new_td);
+        }
+    })
+    </script>
 
 </body>
 

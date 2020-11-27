@@ -1,5 +1,7 @@
 "use strict"
 
+import Order_status from './Order_status.mjs';
+
 export default class Order_history {
     static #_order_history = [];
 

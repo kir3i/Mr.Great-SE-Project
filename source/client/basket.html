@@ -163,6 +163,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <h3 id="total_price" class="h3 p-1 text-gray-800"></h3>
                     <form>
                         <div class="form-group row">
                             <label class="col-sm-3">결제 수단</label>
@@ -206,6 +207,7 @@
 
         // 장바구니 갱신
         let order_list = {};
+        let total_price = 0;
         fetch('/basketList', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -220,9 +222,12 @@
                 order_id = order.order_id;
                 menu_name = "(임시) 메뉴 이름"; // order.menu.name
                 style = order.style;
+                price = order.price;
                 food_amount_list = order.food_amount_list;
                 amount = order.amount;
                 additional_info = order.additional_info;
+
+                total_price += price;
 
                 new_row = document.createElement("div");
                 new_row.setAttribute("class", "row m-2");
@@ -250,7 +255,7 @@
                 // card-title : amount
                 new_card_title = document.createElement("h5");
                 new_card_title.setAttribute("class", "card-title");
-                let tmp = "[" + style + ", " + amount + "개] ";
+                let tmp = price + "원 / (" + style + ", " + amount + "개) ";
                 for (let k in food_amount_list) {
                     tmp = tmp + k + "(" + food_amount_list[k] + ") ";
                 }
@@ -283,6 +288,8 @@
             new_button.setAttribute("data-target", "#payModal");
             new_button.innerHTML = "결제 수단 선택"
             new_col2.appendChild(new_button);
+
+            document.getElementById("total_price").innerHTML = total_price+"원입니다.";
         })
         .catch(error => {
             alert(error);
