@@ -158,6 +158,7 @@ app.post('/payment', (req, res) => {
 // 반환: Customer 객체 or null
 app.post('/customer', (req, res) => {
     const { id } = req.body;
+    console.log('POST /customer: ', id);
 
     // Customer 객체 반환
     const ret = Member_management.activated_member_list[id];
@@ -198,6 +199,7 @@ app.get('/orderlist', (req, res) => {
 // 반환: 응답(성공 시 true, 실패 시 false)
 app.post('/changeOrder', (req, res) => {
     const { order_id, from, to } = req.body;
+    console.log('POST /changeOrder: ', order_id, from, to);
 
     // 주문 상태 변경
     try {
