@@ -42,7 +42,7 @@ export default class Order {
             if (this.food_amount_list[food] > 1) {
                 price += (this.menu.food_list[food])*(this.food_amount_list[food] - 1);
                 // console.log(this.menu.food_list[food], this.food_amount_list[food] - 1);
-            } else (this.food_amount_list[food] == 0) {
+            } else if(this.food_amount_list[food] == 0) {
                 price -= (this.menu.food_list[food]);
             }
         }
