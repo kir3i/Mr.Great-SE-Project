@@ -1,8 +1,8 @@
 "use strict"
 
-import { json } from 'body-parser';
+//import { json } from 'body-parser';
 import fs from 'fs';
-import path from 'path';
+//import path from 'path';
 import Customer from "./Customer.mjs";
 
 const data_path = './source/server/modules/data/';

@@ -2,7 +2,6 @@
 
 import Basic_info from './Basic_info.mjs';
 import Order_status from './Order_status.mjs';
-import Order_list from './Order_list.mjs';
 
 const price_of_style = {
     'simple': 0,

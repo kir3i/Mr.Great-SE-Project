@@ -6,14 +6,12 @@ export default class Basic_info {
     static #_menu_list = [
         new Menu(
             'Vallentine_dinner', 
-            `${menu_path}/img/Vallentine_dinner`, 
             `${menu_path}/Vallentine_dinner`,
             10000,
             { }
         ),
         new Menu(
             'French_dinner', 
-            `${menu_path}/img/French_dinner`, 
             `${menu_path}/French_dinner`,
             20000,
             {
@@ -25,7 +23,6 @@ export default class Basic_info {
         ),
         new Menu(
             'English_dinner', 
-            `${menu_path}/img/English_dinner`, 
             `${menu_path}/English_dinner`,
             24000,
             {
@@ -37,7 +34,6 @@ export default class Basic_info {
         ),
         new Menu(
             'Champagne_festival_dinner', 
-            `${menu_path}/img/Champagne_festival_dinner`, 
             `${menu_path}/Champagne_festival_dinner`,
             62000,
             {
@@ -53,10 +49,6 @@ export default class Basic_info {
         'English_dinner': ['에그 스크램블', '베이컨', '빵', '스테이크'],
         'Champagne_festival_dinner': ['샴페인 한 병', '바게트방 4개', '커피 한 포트']
     };
-    static #_pay_option_list = [
-        '현금',
-        '카드'
-    ];
 
     static get menu_list() {
         return this.#_menu_list;
@@ -64,10 +56,6 @@ export default class Basic_info {
 
     static get order_options_list() {
         return this.#_order_options_list;
-    }
-
-    static get pay_option_list() {
-        return this.#_pay_option_list;
     }
 }
 
