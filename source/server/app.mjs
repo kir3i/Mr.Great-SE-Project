@@ -92,7 +92,6 @@ app.post('/menu', (req, res) => {
     const food_amount_list_JSON = JSON.parse(food_amount_list);
     const additional_info_JSON = JSON.parse(additional_info);
     // Customer 객체가 가진 Basket에 새로운 Order를 추가
-    // 동시에 Order_list에도 추가함 (Order 생성자에서 호출)
     try {
         Member_management.activated_member_list[id].basket.add_order(
             id, menu, style, food_amount_list_JSON, amount, additional_info_JSON
