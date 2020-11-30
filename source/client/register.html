@@ -83,7 +83,12 @@
             else if (!rpw) alert("비밀번호 확인을 입력해주세요.");
             else if (pw != rpw) alert("비밀번호가 일치하지 않습니다.");
             else {
-                fetch('/register', {
+                add_new_member(id, pw, info);
+            }
+        }
+        // Sign_up_controller
+        function add_new_member(id, pw, info) {
+            fetch('/register', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({id, pw, info})
@@ -96,7 +101,6 @@
                 .catch(error => {
                     alert("이미 있는 아이디입니다.");
                 })
-            }
         }
     </script>
 </body>

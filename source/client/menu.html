@@ -643,73 +643,71 @@
 
     <!-- control cookies -->
     <script src="js/cookie.js"></script>
-    <!-- main js -->
+    <!-- <script src="js/Order_menu_controller.js"></script> -->
     <script>
-        let user_id = getCookie("user");
-        // id 갱신
-        document.getElementById("customer_id").innerHTML = user_id + "님";
-        fetch('/customer', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({id : user_id})
-            })
-            .then(res => res.json())
-            .then(ret => {
-                let recent_ordered_menu = ret.recent_ordered_menu_list
-                let N = 4;
-                if (N > recent_ordered_menu.length) {
-                    N = recent_ordered_menu.length;
-                }
-                for (let i = 0; i < N; i++) {
-                    recent_menu = recent_ordered_menu[N - 1 - i].menu.name;
-                    new_col = document.createElement("div");
-                    new_col.setAttribute("class", "col-xl-3 col-md-6 mb-4");
-                    document.getElementById("recnet_menu").appendChild(new_col);
+        // Order_menu_controller
+        function display_recent_menu(user_id) {
+            fetch('/customer', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({id : user_id})
+                })
+                .then(res => res.json())
+                .then(ret => {
+                    let recent_ordered_menu = ret.recent_ordered_menu_list
+                    let N = 4;
+                    if (N > recent_ordered_menu.length) {
+                        N = recent_ordered_menu.length;
+                    }
+                    for (let i = 0; i < N; i++) {
+                        recent_menu = recent_ordered_menu[N - 1 - i].menu.name;
+                        new_col = document.createElement("div");
+                        new_col.setAttribute("class", "col-xl-3 col-md-6 mb-4");
+                        document.getElementById("recnet_menu").appendChild(new_col);
 
-                    new_card = document.createElement("div");
-                    new_card.setAttribute("class", "card border-left-secondary shadow h-100 py-2");
-                    new_col.appendChild(new_card);
+                        new_card = document.createElement("div");
+                        new_card.setAttribute("class", "card border-left-secondary shadow h-100 py-2");
+                        new_col.appendChild(new_card);
 
-                    new_card_body = document.createElement("div");
-                    new_card_body.setAttribute("class", "card-body");
-                    new_card.appendChild(new_card_body);
+                        new_card_body = document.createElement("div");
+                        new_card_body.setAttribute("class", "card-body");
+                        new_card.appendChild(new_card_body);
 
-                    // item
-                    new_card_row = document.createElement("div");
-                    new_card_row.setAttribute("class", "row no-gutters align-items-center");
-                    new_card_body.appendChild(new_card_row);
-                    
-                    // name
-                    new_card_col = document.createElement("div");
-                    new_card_col.setAttribute("class", "col mr-2");
-                    new_card_row.appendChild(new_card_col);
+                        // item
+                        new_card_row = document.createElement("div");
+                        new_card_row.setAttribute("class", "row no-gutters align-items-center");
+                        new_card_body.appendChild(new_card_row);
+                        
+                        // name
+                        new_card_col = document.createElement("div");
+                        new_card_col.setAttribute("class", "col mr-2");
+                        new_card_row.appendChild(new_card_col);
 
-                    new_card_name = document.createElement("div");
-                    new_card_name.setAttribute("class", "h5 mb-0 font-weight-bold text-gray-800");
-                    if (recent_menu == "Vallentine_dinner") new_card_name.innerHTML = "발렌타인 디너(Valentine dinner)";
-                    if (recent_menu == "French_dinner") new_card_name.innerHTML = "프렌치 디너(French dinner)";
-                    if (recent_menu == "English_dinner") new_card_name.innerHTML = "잉글리시 디너(English dinner)";
-                    if (recent_menu == "Champagne_festival_dinner") new_card_name.innerHTML = "샴페인 축제 디너(Champagne Feast dinner)";
-                    new_card_col.appendChild(new_card_name);
+                        new_card_name = document.createElement("div");
+                        new_card_name.setAttribute("class", "h5 mb-0 font-weight-bold text-gray-800");
+                        if (recent_menu == "Vallentine_dinner") new_card_name.innerHTML = "발렌타인 디너(Valentine dinner)";
+                        if (recent_menu == "French_dinner") new_card_name.innerHTML = "프렌치 디너(French dinner)";
+                        if (recent_menu == "English_dinner") new_card_name.innerHTML = "잉글리시 디너(English dinner)";
+                        if (recent_menu == "Champagne_festival_dinner") new_card_name.innerHTML = "샴페인 축제 디너(Champagne Feast dinner)";
+                        new_card_col.appendChild(new_card_name);
 
-                    //button
-                    new_card_button = document.createElement("div");
-                    new_card_button.setAttribute("class", "row no-gutters align-items-center");
-                    new_card_body.appendChild(new_card_button);
+                        //button
+                        new_card_button = document.createElement("div");
+                        new_card_button.setAttribute("class", "row no-gutters align-items-center");
+                        new_card_body.appendChild(new_card_button);
 
-                    new_card_button_text = document.createElement("a");
-                    new_card_button_text.setAttribute("class", "btn btn-secondary");
-                    new_card_button_text.setAttribute("data-toggle", "modal");
-                    new_card_button_text.setAttribute("data-target", "#"+recent_menu+"_Modal");
-                    new_card_button_text.innerHTML = "주문하기";
-                    new_card_button.appendChild(new_card_button_text);
-                }
-            })
-            .catch(error => {
-                alert(error);
-            })
-    </script>
-    <script>
+                        new_card_button_text = document.createElement("a");
+                        new_card_button_text.setAttribute("class", "btn btn-secondary");
+                        new_card_button_text.setAttribute("data-toggle", "modal");
+                        new_card_button_text.setAttribute("data-target", "#"+recent_menu+"_Modal");
+                        new_card_button_text.innerHTML = "주문하기";
+                        new_card_button.appendChild(new_card_button_text);
+                    }
+                })
+                .catch(error => {
+                    alert(error);
+                })
+        }
         function order_btn_event_listener(cur_form) {
             let user_id = getCookie("user");
             let menu = -1;
@@ -777,6 +775,7 @@
                 alert("배송시간을 입력해주세요.");
             }
             else {
+                // add_order
                 fetch('/menu', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
@@ -801,6 +800,13 @@
                 })
             }
         }
+    </script>
+    <!-- main js -->
+    <script>
+        let user_id = getCookie("user");
+        // id 갱신
+        document.getElementById("customer_id").innerHTML = user_id + "님";
+        display_recent_menu(user_id);
     </script>
 
 </body>

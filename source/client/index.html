@@ -68,6 +68,11 @@
         function login_btn_event_listener() {
             let id = document.getElementById("inputId").value;
             let pw = document.getElementById("inputPassword").value;
+            login(id, pw);
+        }
+
+        // Login_controller
+        function login(id, pw) {
             fetch('/', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
