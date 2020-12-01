@@ -3,7 +3,7 @@ function display_basket(user) {
     fetch('/basketList', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({id : user_id})
+        body: JSON.stringify({id : user.id})
     })
     .then(res => res.json())
     .then(ret => {
