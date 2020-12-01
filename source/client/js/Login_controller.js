@@ -8,6 +8,7 @@ function login(id, pw) {
         .then(ret => {
             alert("성공적으로 로그인 되었습니다.");
             if (ret.id == "admin") {
+                setCookie('user', ret.id);
                 location = "/staff";
             } else {
                 setCookie('user', ret.id);

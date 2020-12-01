@@ -27,7 +27,9 @@ export default class Customer {
         // DB에 입력
         const user_str = fs.readFileSync(`${data_path}/users/${this.id}.json`, 'utf8');
         const user = JSON.parse(user_str);
-        user.info.call_cnt += 1;
+        if (user.info.is_checked) {
+            user.info.call_cnt += 1;
+        }
         // 단골 손님 등록
         if (user.info.call_cnt > 3) {
             user.info.is_regular = true;

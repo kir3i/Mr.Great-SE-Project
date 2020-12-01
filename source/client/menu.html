@@ -153,7 +153,7 @@
                     <div class="modal-body">정말로 로그아웃 하시겠습니까?</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                        <a class="btn btn-primary" href="/">로그아웃</a>
+                        <a class="btn btn-primary" onclick="logout()">로그아웃</a>
                     </div>
                 </div>
             </div>
@@ -557,6 +557,22 @@
             let user_id = getCookie("user");
             document.getElementById("customer_id").innerHTML = user_id + "님";
             display_recent_menu(user_id);
+
+            function logout() {
+                let user_id = getCookie("user");
+                fetch('/logout', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: user_id })
+                })
+                    .then(res => res.json())
+                    .then(ret => {
+                        location = "/";
+                    })
+                    .catch(error => {
+                        alert(error);
+                    })
+            }
 
             function order_btn_event_listener(cur_form) {
                 let user_id = getCookie("user");

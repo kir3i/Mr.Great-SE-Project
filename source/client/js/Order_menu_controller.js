@@ -12,7 +12,7 @@ function display_recent_menu(user_id) {
             N = recent_ordered_menu.length;
         }
         for (let i = 0; i < N; i++) {
-            recent_menu = recent_ordered_menu[N - 1 - i].menu.name;
+            recent_menu = recent_ordered_menu[i].menu.name;
             new_col = document.createElement("div");
             new_col.setAttribute("class", "col-xl-3 col-md-6 mb-4");
             document.getElementById("recnet_menu").appendChild(new_col);
