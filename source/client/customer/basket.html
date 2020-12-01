@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>과거 주문 내역</title>
+    <title>장바구니</title>
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -18,27 +18,25 @@
     <div id="wrapper">
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/staff">
-                <div class="sidebar-brand-text mx-3">미스터 대박!(관리자)</div>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/customer">
+                <div class="sidebar-brand-text mx-3">미스터 대박!</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
-                <a class="nav-link" href="/now_ordered">
-                    <i class="far fa-list-alt"></i>
-                    <span>Now Ordered</span></a>
+                <a class="nav-link" href="/menu">
+                    <i class="fas fa-hamburger"></i>
+                    <span>메뉴</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/order_history">
-                    <i class="fas fa-history"></i>
-                    <span>Order History</span></a>
+                <a class="nav-link" href="/basket">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span>장바구니</span></a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
         </ul>
-
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 <!-- Topbar -->
@@ -47,7 +45,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">관리자</span>
+                                <span id="customer_id" class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -60,26 +58,13 @@
 
                     </ul>
                 </nav>
-
                 <!-- Page Content -->
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Order ID</th>
-                                        <th scope="col">Customer ID</th>
-                                        <th scope="col">주문 내역</th>
-                                        <th scope="col">가격</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="history_table">
-                                </tbody>
-                            </table>
-                        </div>
+                <div id="content_basket" class="container-fluid">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">장바구니</h1>
                     </div>
                 </div>
+
             </div>
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
@@ -114,16 +99,61 @@
             </div>
         </div>
     </div>
+    <!--pay Modal-->
+    <div class="modal fade" id="payModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">결제 상세</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3 id="total_price" class="h3 p-1 text-gray-800"></h3>
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-sm-3">결제 수단</label>
+                            <select id="pay_info" class="form-control col-sm-2 ml-3">
+                                <option selected>현금</option>
+                                <option>카드</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                    <a class="btn btn-primary" onclick="pay_btn_event_listener()">주문 완료</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap core JavaScript-->
     <script src="/vendor/jquery/jquery.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="/js/sb-admin-2.min.js"></script>
-    <!--Controllers-->
+    <!--controller-->
     <script src="/js/Cookie_controller.js"></script>
-    <script src="/js/Order_history_controller.js"></script>
+    <script src="/customer/Pay_controller.js"></script>
     <script>
-        display_order_history();
+        let user_id = getCookie("user");
+        document.getElementById("customer_id").innerHTML = user_id + "님";
+        fetch('/customer', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: user_id })
+        })
+            .then(res => res.json())
+            .then(ret => {
+                let user = ret;
+                display_basket(user);
+            })
+            .catch(error => {
+                alert(error);
+            })
 
         function logout() {
             let user_id = getCookie("user");
@@ -139,6 +169,18 @@
                 .catch(error => {
                     alert(error);
                 })
+        }
+
+        function remove_btn_event_listener(order_id) {
+            let user_id = getCookie("user");
+            remove_order(user_id, order_id);
+        }
+
+        function pay_btn_event_listener() {
+            let user_id = getCookie("user");
+            let pay_info = document.getElementById("pay_info").value;
+            let total_price = parseInt(document.getElementById("total_price").innerHTML);
+            pay(user_id, pay_info, total_price);
         }
     </script>
 </body>

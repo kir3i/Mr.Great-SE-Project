@@ -72,13 +72,13 @@ app.post('/register', (req, res) => {
 // 고객 메인 페이지
 app.get('/customer', (req, res) => {
     console.log('GET /customer');
-    res.sendFile(path.join(__dirname, 'source', 'client', 'html_customer', 'customer.html'));
+    res.sendFile(path.join(__dirname, 'source', 'client', 'customer', 'customer.html'));
 });
 
 // 고객 - 메뉴 페이지
 app.get('/menu', (req, res) => {
     console.log('GET /menu');
-    res.sendFile(path.join(__dirname, 'source', 'client', 'html_customer', 'menu.html'));
+    res.sendFile(path.join(__dirname, 'source', 'client', 'customer', 'menu.html'));
 });
 
 // 고객 - 주문
@@ -112,7 +112,7 @@ app.post('/menu', (req, res) => {
 // 고객 - 장바구니 페이지
 app.get('/basket', (req, res) => {
     console.log('GET /basket');
-    res.sendFile(path.join(__dirname, 'source', 'client', 'html_customer', 'basket.html'));
+    res.sendFile(path.join(__dirname, 'source', 'client', 'customer', 'basket.html'));
 });
 
 // 고객 - 장바구니 확인
@@ -169,13 +169,13 @@ app.post('/customer', (req, res) => {
 // 직원 메인 페이지
 app.get('/staff', (req, res) => {
     console.log('GET /staff');
-    res.sendFile(path.join(__dirname, 'source', 'client', 'html_staff', 'staff.html'));
+    res.sendFile(path.join(__dirname, 'source', 'client', 'staff', 'staff.html'));
 });
 
 // 직원 - 현재 주문 페이지
 app.get('/now_ordered', (req, res) => {
     console.log('GET /now_ordered');
-    res.sendFile(path.join(__dirname, 'source', 'client', 'html_staff', 'now_ordered.html'));
+    res.sendFile(path.join(__dirname, 'source', 'client', 'staff', 'now_ordered.html'));
 });
 
 // 직원 - 활성화된 주문 목록 조회
@@ -213,7 +213,7 @@ app.post('/changeOrder', (req, res) => {
 // 직원 - 완료 주문 이력 페이지
 app.get('/order_history', (req, res) => {
     console.log('GET /order_history');
-    res.sendFile(path.join(__dirname, 'source', 'client', 'html_staff', 'order_history.html'));
+    res.sendFile(path.join(__dirname, 'source', 'client', 'staff', 'order_history.html'));
 });
 
 // 직원 - 과거 주문 이력 조회
