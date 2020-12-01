@@ -1,83 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
     <title>주문하기</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/custom_coloring.css">
-
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/custom_coloring.css">
 </head>
 
 <body id="page-top">
-
-    <!-- Page Wrapper -->
     <div id="wrapper">
-
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="./customer">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/customer">
                 <div class="sidebar-brand-text mx-3">미스터 대박!</div>
             </a>
-            <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item -->
             <li class="nav-item">
-                <a class="nav-link" href="./menu">
+                <a class="nav-link" href="/menu">
                     <i class="fas fa-hamburger"></i>
                     <span>메뉴</span></a>
             </li>
-            
-            <!-- Nav Item -->
             <li class="nav-item">
-                <a class="nav-link" href="./basket">
+                <a class="nav-link" href="/basket">
                     <i class="fas fa-shopping-basket"></i>
                     <span>장바구니</span></a>
             </li>
-
-            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
         </ul>
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-            <!-- Main Content -->
             <div id="content">
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                    <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span id="customer_id" class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
                             </a>
-                            <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -89,726 +58,572 @@
 
                     </ul>
                 </nav>
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
+                <!-- Page Content -->
                 <div class="container-fluid">
-
                     <!-- 최근 주문 -->
-                    <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">최근 주문</h1>
                     </div>
-
-                    <div id="recnet_menu" class="row">
-
-                    </div>
-                        
-                    <!-- Page Heading -->
+                    <div id="recnet_menu" class="row"></div>
+                    <!-- 메뉴 -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">메뉴</h1>
                     </div>
-                    
-                    <!-- Content Row -->
                     <div class="row">
-
                         <div class="col-xl-6 col-md-6 mb-4">
                             <div class="h-100 card">
-                                <img src="img/img_dduk.jpg" class="card-img-top" alt="발렌타인 디너(Valentine dinner)">
+                                <img src="/img/img_dduk.jpg" class="card-img-top" alt="발렌타인 디너(Valentine dinner)">
                                 <div class="card-body">
                                     <h5 class="card-title">발렌타인 디너(Valentine dinner) [10,000원]</h5>
                                     <p class="card-text">작은 하트 모양과 큐피드가 장식된 접시에 냅킨과 함께 제공됩니다.</p>
-                                    <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#Vallentine_dinner_Modal">
+                                    <a href="#" class="btn btn-secondary" data-toggle="modal"
+                                        data-target="#Vallentine_dinner_Modal">
                                         주문하기
                                     </a>
                                 </div>
-                              </div>
+                            </div>
                         </div>
-
                         <div class="col-xl-6 col-md-6 mb-4">
                             <div class="h-100 card">
-                                <img src="img/img_dduk.jpg" class="card-img-top" alt="프렌치 디너(French dinner)">
+                                <img src="/img/img_dduk.jpg" class="card-img-top" alt="프렌치 디너(French dinner)">
                                 <div class="card-body">
-                                  <h5 class="card-title">프렌치 디너(French dinner) [20,000원]</h5>
-                                  <p class="card-text">커피 한잔, 와인 한잔, 샐러드, 고기가 제공됩니다.</p>
-                                  <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#French_dinner_Modal">
-                                      주문하기
+                                    <h5 class="card-title">프렌치 디너(French dinner) [20,000원]</h5>
+                                    <p class="card-text">커피 한잔, 와인 한잔, 샐러드, 고기가 제공됩니다.</p>
+                                    <a href="#" class="btn btn-secondary" data-toggle="modal"
+                                        data-target="#French_dinner_Modal">
+                                        주문하기
                                     </a>
                                 </div>
-                              </div>
+                            </div>
                         </div>
-
                         <div class="col-xl-6 col-md-6 mb-4">
                             <div class="h-100 card">
-                                <img src="img/img_dduk.jpg" class="card-img-top" alt="잉글리시 디너(English dinner)">
+                                <img src="/img/img_dduk.jpg" class="card-img-top" alt="잉글리시 디너(English dinner)">
                                 <div class="card-body">
-                                  <h5 class="card-title">잉글리시 디너(English dinner) [24,000원]</h5>
-                                  <p class="card-text">에그 스크램블, 베이컨, 빵, 스테이크가 제공됩니다.</p>
-                                  <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#English_dinner_Modal">
-                                      주문하기
+                                    <h5 class="card-title">잉글리시 디너(English dinner) [24,000원]</h5>
+                                    <p class="card-text">에그 스크램블, 베이컨, 빵, 스테이크가 제공됩니다.</p>
+                                    <a href="#" class="btn btn-secondary" data-toggle="modal"
+                                        data-target="#English_dinner_Modal">
+                                        주문하기
                                     </a>
                                 </div>
-                              </div>
+                            </div>
                         </div>
-
                         <div class="col-xl-6 col-md-6 mb-4">
                             <div class="h-100 card">
-                                <img src="img/img_dduk.jpg" class="card-img-top" alt="샴페인 축제 디너(Champagne Feast dinner)">
+                                <img src="/img/img_dduk.jpg" class="card-img-top"
+                                    alt="샴페인 축제 디너(Champagne Feast dinner)">
                                 <div class="card-body">
-                                  <h5 class="card-title">샴페인 축제 디너(Champagne Feast dinner) [2인, 62,000원]</h5>
-                                  <p class="card-text">샴페인 한병, 4개의 바게트빵, 커피 한 포트가 제공됩니다.</p>
-                                  <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#Champagne_festival_dinner_Modal">
-                                      주문하기
+                                    <h5 class="card-title">샴페인 축제 디너(Champagne Feast dinner) [2인, 62,000원]</h5>
+                                    <p class="card-text">샴페인 한병, 4개의 바게트빵, 커피 한 포트가 제공됩니다.</p>
+                                    <a href="#" class="btn btn-secondary" data-toggle="modal"
+                                        data-target="#Champagne_festival_dinner_Modal">
+                                        주문하기
                                     </a>
                                 </div>
-                              </div>
+                            </div>
                         </div>
-                </div>
-                <!-- /.container-fluid -->
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Team 뚝배기</span>
                     </div>
                 </div>
-            </footer>
-            <!-- End of Footer -->
-
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Team 뚝배기</span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
         </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">로그아웃</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">정말로 로그아웃 하시겠습니까?</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                    <a class="btn btn-primary" href="/">로그아웃</a>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">로그아웃</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">정말로 로그아웃 하시겠습니까?</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                        <a class="btn btn-primary" href="/">로그아웃</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- valentineModal Modal-->
-    <div class="modal fade" id="Vallentine_dinner_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">주문하기 상세</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
+        <!-- valentineModal Modal-->
+        <div class="modal fade" id="Vallentine_dinner_Modal" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">주문하기 상세</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- form start -->
+                        <form id="Vallentine_dinner" method="GET" onsubmit="order_btn_event_listener(this)">
+                            <!-- 스타일 -->
+                            <div class="form-group row">
+                                <div class="col">
+                                    <label class="col-sm-3">스타일</label>
+                                    <select id="style" class="form-control col-sm-12">
+                                        <option selected>simple</option>
+                                        <option>grand(+3,000)</option>
+                                        <option>deluxe(+10,000)</option>
+                                    </select>
+                                    <small class="form-text text-muted m-2">
+                                        simple : 상자 접시에 냅킨이 플라스틱 쟁반에 제공됩니다. 와인이 포함되면 잔은 플라스틱 잔입니다.<br>
+                                        grand : 도자기 접시와 컵, 흰색 면 냅킨이 나무 쟁반에 제공됩니다.<br>
+                                        deluxe : 쟁반에 꽃들이 있는 작은 꽃병, 도자기 접시와 린넨 냅킨이 함께 제공됩니다.
+                                    </small>
+                                </div>
+                            </div>
+                            <!-- 배송지 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">배송지</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" id="to" placeholder="배송지">
+                                </div>
+                            </div>
+                            <!-- 배송 시간 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">배송시간</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" id="until" placeholder="배송시간">
+                                </div>
+                            </div>
+                            <!-- 배송 수량 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">수량</label>
+                                <div class="col-sm-3">
+                                    <input class="form-control" id="amount" placeholder="수량" value="1">
+                                </div>
+                            </div>
+                            <!-- footer -->
+                            <div class="form-group row modal-footer">
+                                <div class="col-sm-10 align-right">
+                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                                    <button type="submit" class="btn btn-primary">장바구니에 담기</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- form end -->
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <!-- form start -->
-                    <form id="Vallentine_dinner" method="GET" onsubmit="order_btn_event_listener(this)">
-                        <!-- 스타일 -->
-                        <div class="form-group row">
-                            <div class="col">
-                                <label class="col-sm-3">스타일</label>
-                                <select id="style" class="form-control col-sm-12">
-                                    <option selected>simple</option>
-                                    <option>grand(+3,000)</option>
-                                    <option>deluxe(+10,000)</option>
+            </div>
+        </div>
+        <!-- frenchModal Modal-->
+        <div class="modal fade" id="French_dinner_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">주문하기 상세</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- form start -->
+                        <form id="French_dinner" method="GET" onsubmit="order_btn_event_listener(this)">
+                            <!-- 스타일 -->
+                            <div class="form-group row">
+                                <div class="col">
+                                    <label class="col-sm-3">스타일</label>
+                                    <select id="style" class="form-control col-sm-12">
+                                        <option selected>simple</option>
+                                        <option>grand(+3,000)</option>
+                                        <option>deluxe(+10,000)</option>
+                                    </select>
+                                    <small class="form-text text-muted m-2">
+                                        simple : 상자 접시에 냅킨이 플라스틱 쟁반에 제공됩니다. 와인이 포함되면 잔은 플라스틱 잔입니다.<br>
+                                        grand : 도자기 접시와 컵, 흰색 면 냅킨이 나무 쟁반에 제공됩니다.<br>
+                                        deluxe : 쟁반에 꽃들이 있는 작은 꽃병, 도자기 접시와 린넨 냅킨이 함께 제공됩니다.
+                                    </small>
+                                </div>
+                            </div>
+                            <!-- 수량 1 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3">커피</label>
+                                <select id="coffee" class="form-control col-sm-2 ml-3">
+                                    <option selected>1잔</option>
+                                    <option>0잔</option>
+                                    <option>2잔</option>
+                                    <option>3잔</option>
+                                    <option>4잔</option>
+                                    <option>5잔</option>
                                 </select>
-                                <small class="form-text text-muted m-2">
-                                    simple : 상자 접시에 냅킨이 플라스틱 쟁반에 제공됩니다. 와인이 포함되면 잔은 플라스틱 잔입니다.<br>
-                                    grand : 도자기 접시와 컵, 흰색 면 냅킨이 나무 쟁반에 제공됩니다.<br>
-                                    deluxe : 쟁반에 꽃들이 있는 작은 꽃병, 도자기 접시와 린넨 냅킨이 함께 제공됩니다.
-                                </small>
                             </div>
-                        </div>
-                        <!-- 배송지 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">배송지</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" id="to" placeholder="배송지">
-                            </div>
-                        </div>
-                        <!-- 배송 시간 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">배송시간</label>
-                            <div class="col-sm-9">
-                              <input class="form-control" id="until" placeholder="배송시간">
-                            </div>
-                        </div>
-                        <!-- 배송 수량 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">수량</label>
-                            <div class="col-sm-3">
-                              <input class="form-control" id="amount" placeholder="수량" value="1">
-                            </div>
-                        </div>
-                        <!-- footer -->
-                        <div class="form-group row modal-footer">
-                          <div class="col-sm-10 align-right">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                            <button type="submit" class="btn btn-primary">장바구니에 담기</button>
-                          </div>
-                        </div>
-                      </form>
-                      <!-- form end -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- frenchModal Modal-->
-    <div class="modal fade" id="French_dinner_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">주문하기 상세</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- form start -->
-                    <form id="French_dinner" method="GET" onsubmit="order_btn_event_listener(this)">
-                        <!-- 스타일 -->
-                        <div class="form-group row">
-                            <div class="col">
-                                <label class="col-sm-3">스타일</label>
-                                <select id="style" class="form-control col-sm-12">
-                                    <option selected>simple</option>
-                                    <option>grand(+3,000)</option>
-                                    <option>deluxe(+10,000)</option>
+                            <!-- 수량 2 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3">와인</label>
+                                <select id="wine" class="form-control col-sm-2 ml-3">
+                                    <option selected>1잔</option>
+                                    <option>0잔</option>
+                                    <option>2잔</option>
+                                    <option>3잔</option>
+                                    <option>4잔</option>
+                                    <option>5잔</option>
                                 </select>
-                                <small class="form-text text-muted m-2">
-                                    simple : 상자 접시에 냅킨이 플라스틱 쟁반에 제공됩니다. 와인이 포함되면 잔은 플라스틱 잔입니다.<br>
-                                    grand : 도자기 접시와 컵, 흰색 면 냅킨이 나무 쟁반에 제공됩니다.<br>
-                                    deluxe : 쟁반에 꽃들이 있는 작은 꽃병, 도자기 접시와 린넨 냅킨이 함께 제공됩니다.
-                                </small>
                             </div>
-                        </div>
-
-                        <!-- 수량 1 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3">커피</label>
-                            <select id="coffee" class="form-control col-sm-2 ml-3">
-                                <option selected>1잔</option>
-                                <option>0잔</option>
-                                <option>2잔</option>
-                                <option>3잔</option>
-                                <option>4잔</option>
-                                <option>5잔</option>
-                            </select>
-                        </div>
-
-                        <!-- 수량 2 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3">와인</label>
-                            <select id="wine" class="form-control col-sm-2 ml-3">
-                                <option selected>1잔</option>
-                                <option>0잔</option>
-                                <option>2잔</option>
-                                <option>3잔</option>
-                                <option>4잔</option>
-                                <option>5잔</option>
-                            </select>
-                        </div>
-
-                        <!-- 수량 3 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3">샐러드</label>
-                            <select id="salad" class="form-control col-sm-2 ml-3">
-                                <option selected>1개</option>
-                                <option>0개</option>
-                                <option>2개</option>
-                                <option>3개</option>
-                                <option>4개</option>
-                                <option>5개</option>
-                            </select>
-                        </div>
-
-                        <!-- 수량 4 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3">고기</label>
-                            <select id="beef" class="form-control col-sm-2 ml-3">
-                                <option selected>1개</option>
-                                <option>0개</option>
-                                <option>2개</option>
-                                <option>3개</option>
-                                <option>4개</option>
-                                <option>5개</option>
-                            </select>
-                        </div>
-
-                        <!-- 배송지 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">배송지</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" id="to" placeholder="배송지">
-                            </div>
-                        </div>
-
-                        <!-- 배송 시간 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">배송시간</label>
-                            <div class="col-sm-9">
-                              <input class="form-control" id="until" placeholder="배송시간">
-                            </div>
-                        </div>
-
-                        <!-- 배송 수량 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">수량</label>
-                            <div class="col-sm-3">
-                              <input class="form-control" id="amount" placeholder="수량" value="1">
-                            </div>
-                        </div>
-
-                        <!-- footer -->
-                        <div class="form-group row modal-footer">
-                          <div class="col-sm-10 align-right">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                            <button type="submit" class="btn btn-primary">장바구니에 담기</button>
-                          </div>
-                        </div>
-                      </form>
-                      <!-- form end -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- englishModal Modal-->
-    <div class="modal fade" id="English_dinner_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">주문하기 상세</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- form start -->
-                    <form id="English_dinner" method="GET" onsubmit="order_btn_event_listener(this)">
-                        <!-- 스타일 -->
-                        <div class="form-group row">
-                            <div class="col">
-                                <label class="col-sm-3">스타일</label>
-                                <select id="style" class="form-control col-sm-12">
-                                    <option selected>simple</option>
-                                    <option>grand(+3,000)</option>
-                                    <option>deluxe(+10,000)</option>
+                            <!-- 수량 3 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3">샐러드</label>
+                                <select id="salad" class="form-control col-sm-2 ml-3">
+                                    <option selected>1개</option>
+                                    <option>0개</option>
+                                    <option>2개</option>
+                                    <option>3개</option>
+                                    <option>4개</option>
+                                    <option>5개</option>
                                 </select>
-                                <small class="form-text text-muted m-2">
-                                    simple : 상자 접시에 냅킨이 플라스틱 쟁반에 제공됩니다. 와인이 포함되면 잔은 플라스틱 잔입니다.<br>
-                                    grand : 도자기 접시와 컵, 흰색 면 냅킨이 나무 쟁반에 제공됩니다.<br>
-                                    deluxe : 쟁반에 꽃들이 있는 작은 꽃병, 도자기 접시와 린넨 냅킨이 함께 제공됩니다.
-                                </small>
                             </div>
-                        </div>
-
-                        <!-- 수량 1 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3">에그 스크램블</label>
-                            <select id="egg" class="form-control col-sm-2 ml-3">
-                                <option selected>1개</option>
-                                <option>0개</option>
-                                <option>2개</option>
-                                <option>3개</option>
-                                <option>4개</option>
-                                <option>5개</option>
-                            </select>
-                        </div>
-
-                        <!-- 수량 2 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3">베이컨</label>
-                            <select id="bacon" class="form-control col-sm-2 ml-3">
-                                <option selected>1개</option>
-                                <option>0개</option>
-                                <option>2개</option>
-                                <option>3개</option>
-                                <option>4개</option>
-                                <option>5개</option>
-                            </select>
-                        </div>
-
-                        <!-- 수량 3 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3">빵</label>
-                            <select id="bread" class="form-control col-sm-2 ml-3">
-                                <option selected>1개</option>
-                                <option>0개</option>
-                                <option>2개</option>
-                                <option>3개</option>
-                                <option>4개</option>
-                                <option>5개</option>
-                            </select>
-                        </div>
-
-                        <!-- 수량 4 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3">스테이크</label>
-                            <select id="stake" class="form-control col-sm-2 ml-3">
-                                <option selected>1개</option>
-                                <option>0개</option>
-                                <option>2개</option>
-                                <option>3개</option>
-                                <option>4개</option>
-                                <option>5개</option>
-                            </select>
-                        </div>
-
-                        <!-- 배송지 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">배송지</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" id="to" placeholder="배송지">
-                            </div>
-                        </div>
-
-                        <!-- 배송 시간 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">배송시간</label>
-                            <div class="col-sm-9">
-                              <input class="form-control" id="until" placeholder="배송시간">
-                            </div>
-                        </div>
-
-                        <!-- 배송 수량 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">수량</label>
-                            <div class="col-sm-3">
-                              <input class="form-control" id="amount" placeholder="수량" value="1">
-                            </div>
-                        </div>
-
-                        <!-- footer -->
-                        <div class="form-group row modal-footer">
-                          <div class="col-sm-10 align-right">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                            <button type="submit" class="btn btn-primary">장바구니에 담기</button>
-                          </div>
-                        </div>
-                      </form>
-                      <!-- form end -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- champagneModal Modal-->
-    <div class="modal fade" id="Champagne_festival_dinner_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">주문하기 상세</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- form start -->
-                    <form id="Champagne_festival_dinner" method="GET" onsubmit="order_btn_event_listener(this)">
-                        <!-- 스타일 -->
-                        <div class="form-group row">
-                            <div class="col">
-                                <label class="col-sm-3">스타일</label>
-                                <select id="style" class="form-control col-sm-12">
-                                    <option selected>grand(+3,000)</option>
-                                    <option>deluxe(+10,000)</option>
+                            <!-- 수량 4 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3">고기</label>
+                                <select id="beef" class="form-control col-sm-2 ml-3">
+                                    <option selected>1개</option>
+                                    <option>0개</option>
+                                    <option>2개</option>
+                                    <option>3개</option>
+                                    <option>4개</option>
+                                    <option>5개</option>
                                 </select>
-                                <small class="form-text text-muted m-2">
-                                    simple : 상자 접시에 냅킨이 플라스틱 쟁반에 제공됩니다. 와인이 포함되면 잔은 플라스틱 잔입니다.<br>
-                                    grand : 도자기 접시와 컵, 흰색 면 냅킨이 나무 쟁반에 제공됩니다.<br>
-                                    deluxe : 쟁반에 꽃들이 있는 작은 꽃병, 도자기 접시와 린넨 냅킨이 함께 제공됩니다.
-                                </small>
                             </div>
-                        </div>
-
-                        <!-- 수량 1 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3">샴페인</label>
-                            <select id="champagne" class="form-control col-sm-2 ml-3">
-                                <option selected>1병</option>
-                                <option>0병</option>
-                                <option>2병</option>
-                                <option>3병</option>
-                                <option>4병</option>
-                                <option>5병</option>
-                            </select>
-                        </div>
-
-                        <!-- 수량 2 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3">바게트빵</label>
-                            <select id="bagguette" class="form-control col-sm-2 ml-3">
-                                <option selected>4개</option>
-                                <option>0개</option>
-                                <option>1개</option>
-                                <option>2개</option>
-                                <option>3개</option>
-                                <option>5개</option>
-                            </select>
-                        </div>
-
-                        <!-- 수량 3 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3">커피</label>
-                            <select id="coffee" class="form-control col-sm-2 ml-3">
-                                <option selected>1포트</option>
-                                <option>0포트</option>
-                                <option>2포트</option>
-                                <option>3포트</option>
-                                <option>4포트</option>
-                                <option>5포트</option>
-                            </select>
-                        </div>
-
-                        <!-- 배송지 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">배송지</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" id="to" placeholder="배송지">
+                            <!-- 배송지 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">배송지</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" id="to" placeholder="배송지">
+                                </div>
                             </div>
-                        </div>
-
-                        <!-- 배송 시간 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">배송시간</label>
-                            <div class="col-sm-9">
-                              <input class="form-control" id="until" placeholder="배송시간">
+                            <!-- 배송 시간 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">배송시간</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" id="until" placeholder="배송시간">
+                                </div>
                             </div>
-                        </div>
-
-                        <!-- 배송 시간 -->
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">수량</label>
-                            <div class="col-sm-3">
-                              <input class="form-control" id="amount" placeholder="수량" value="1">
+                            <!-- 배송 수량 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">수량</label>
+                                <div class="col-sm-3">
+                                    <input class="form-control" id="amount" placeholder="수량" value="1">
+                                </div>
                             </div>
-                        </div>
-
-                        <!-- footer -->
-                        <div class="form-group row modal-footer">
-                          <div class="col-sm-10 align-right">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                            <button type="submit" class="btn btn-primary">장바구니에 담기</button>
-                          </div>
-                        </div>
-                      </form>
-                      <!-- form end -->
+                            <!-- footer -->
+                            <div class="form-group row modal-footer">
+                                <div class="col-sm-10 align-right">
+                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                                    <button type="submit" class="btn btn-primary">장바구니에 담기</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- form end -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Mr.Great Frontend -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-    <!-- control cookies -->
-    <script src="js/cookie.js"></script>
-    <!-- <script src="js/Order_menu_controller.js"></script> -->
-    <script>
-        // Order_menu_controller
-        function display_recent_menu(user_id) {
-            fetch('/customer', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({id : user_id})
-                })
-                .then(res => res.json())
-                .then(ret => {
-                    let recent_ordered_menu = ret.recent_ordered_menu_list
-                    let N = 4;
-                    if (N > recent_ordered_menu.length) {
-                        N = recent_ordered_menu.length;
-                    }
-                    for (let i = 0; i < N; i++) {
-                        recent_menu = recent_ordered_menu[N - 1 - i].menu.name;
-                        new_col = document.createElement("div");
-                        new_col.setAttribute("class", "col-xl-3 col-md-6 mb-4");
-                        document.getElementById("recnet_menu").appendChild(new_col);
-
-                        new_card = document.createElement("div");
-                        new_card.setAttribute("class", "card border-left-secondary shadow h-100 py-2");
-                        new_col.appendChild(new_card);
-
-                        new_card_body = document.createElement("div");
-                        new_card_body.setAttribute("class", "card-body");
-                        new_card.appendChild(new_card_body);
-
-                        // item
-                        new_card_row = document.createElement("div");
-                        new_card_row.setAttribute("class", "row no-gutters align-items-center");
-                        new_card_body.appendChild(new_card_row);
-                        
-                        // name
-                        new_card_col = document.createElement("div");
-                        new_card_col.setAttribute("class", "col mr-2");
-                        new_card_row.appendChild(new_card_col);
-
-                        new_card_name = document.createElement("div");
-                        new_card_name.setAttribute("class", "h5 mb-0 font-weight-bold text-gray-800");
-                        if (recent_menu == "Vallentine_dinner") new_card_name.innerHTML = "발렌타인 디너(Valentine dinner)";
-                        if (recent_menu == "French_dinner") new_card_name.innerHTML = "프렌치 디너(French dinner)";
-                        if (recent_menu == "English_dinner") new_card_name.innerHTML = "잉글리시 디너(English dinner)";
-                        if (recent_menu == "Champagne_festival_dinner") new_card_name.innerHTML = "샴페인 축제 디너(Champagne Feast dinner)";
-                        new_card_col.appendChild(new_card_name);
-
-                        //button
-                        new_card_button = document.createElement("div");
-                        new_card_button.setAttribute("class", "row no-gutters align-items-center");
-                        new_card_body.appendChild(new_card_button);
-
-                        new_card_button_text = document.createElement("a");
-                        new_card_button_text.setAttribute("class", "btn btn-secondary");
-                        new_card_button_text.setAttribute("data-toggle", "modal");
-                        new_card_button_text.setAttribute("data-target", "#"+recent_menu+"_Modal");
-                        new_card_button_text.innerHTML = "주문하기";
-                        new_card_button.appendChild(new_card_button_text);
-                    }
-                })
-                .catch(error => {
-                    alert(error);
-                })
-        }
-        function order_btn_event_listener(cur_form) {
+        <!-- englishModal Modal-->
+        <div class="modal fade" id="English_dinner_Modal" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">주문하기 상세</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- form start -->
+                        <form id="English_dinner" method="GET" onsubmit="order_btn_event_listener(this)">
+                            <!-- 스타일 -->
+                            <div class="form-group row">
+                                <div class="col">
+                                    <label class="col-sm-3">스타일</label>
+                                    <select id="style" class="form-control col-sm-12">
+                                        <option selected>simple</option>
+                                        <option>grand(+3,000)</option>
+                                        <option>deluxe(+10,000)</option>
+                                    </select>
+                                    <small class="form-text text-muted m-2">
+                                        simple : 상자 접시에 냅킨이 플라스틱 쟁반에 제공됩니다. 와인이 포함되면 잔은 플라스틱 잔입니다.<br>
+                                        grand : 도자기 접시와 컵, 흰색 면 냅킨이 나무 쟁반에 제공됩니다.<br>
+                                        deluxe : 쟁반에 꽃들이 있는 작은 꽃병, 도자기 접시와 린넨 냅킨이 함께 제공됩니다.
+                                    </small>
+                                </div>
+                            </div>
+                            <!-- 수량 1 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3">에그 스크램블</label>
+                                <select id="egg" class="form-control col-sm-2 ml-3">
+                                    <option selected>1개</option>
+                                    <option>0개</option>
+                                    <option>2개</option>
+                                    <option>3개</option>
+                                    <option>4개</option>
+                                    <option>5개</option>
+                                </select>
+                            </div>
+                            <!-- 수량 2 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3">베이컨</label>
+                                <select id="bacon" class="form-control col-sm-2 ml-3">
+                                    <option selected>1개</option>
+                                    <option>0개</option>
+                                    <option>2개</option>
+                                    <option>3개</option>
+                                    <option>4개</option>
+                                    <option>5개</option>
+                                </select>
+                            </div>
+                            <!-- 수량 3 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3">빵</label>
+                                <select id="bread" class="form-control col-sm-2 ml-3">
+                                    <option selected>1개</option>
+                                    <option>0개</option>
+                                    <option>2개</option>
+                                    <option>3개</option>
+                                    <option>4개</option>
+                                    <option>5개</option>
+                                </select>
+                            </div>
+                            <!-- 수량 4 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3">스테이크</label>
+                                <select id="stake" class="form-control col-sm-2 ml-3">
+                                    <option selected>1개</option>
+                                    <option>0개</option>
+                                    <option>2개</option>
+                                    <option>3개</option>
+                                    <option>4개</option>
+                                    <option>5개</option>
+                                </select>
+                            </div>
+                            <!-- 배송지 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">배송지</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" id="to" placeholder="배송지">
+                                </div>
+                            </div>
+                            <!-- 배송 시간 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">배송시간</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" id="until" placeholder="배송시간">
+                                </div>
+                            </div>
+                            <!-- 배송 수량 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">수량</label>
+                                <div class="col-sm-3">
+                                    <input class="form-control" id="amount" placeholder="수량" value="1">
+                                </div>
+                            </div>
+                            <!-- footer -->
+                            <div class="form-group row modal-footer">
+                                <div class="col-sm-10 align-right">
+                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                                    <button type="submit" class="btn btn-primary">장바구니에 담기</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- form end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- champagneModal Modal-->
+        <div class="modal fade" id="Champagne_festival_dinner_Modal" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">주문하기 상세</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- form start -->
+                        <form id="Champagne_festival_dinner" method="GET" onsubmit="order_btn_event_listener(this)">
+                            <!-- 스타일 -->
+                            <div class="form-group row">
+                                <div class="col">
+                                    <label class="col-sm-3">스타일</label>
+                                    <select id="style" class="form-control col-sm-12">
+                                        <option selected>grand(+3,000)</option>
+                                        <option>deluxe(+10,000)</option>
+                                    </select>
+                                    <small class="form-text text-muted m-2">
+                                        simple : 상자 접시에 냅킨이 플라스틱 쟁반에 제공됩니다. 와인이 포함되면 잔은 플라스틱 잔입니다.<br>
+                                        grand : 도자기 접시와 컵, 흰색 면 냅킨이 나무 쟁반에 제공됩니다.<br>
+                                        deluxe : 쟁반에 꽃들이 있는 작은 꽃병, 도자기 접시와 린넨 냅킨이 함께 제공됩니다.
+                                    </small>
+                                </div>
+                            </div>
+                            <!-- 수량 1 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3">샴페인</label>
+                                <select id="champagne" class="form-control col-sm-2 ml-3">
+                                    <option selected>1병</option>
+                                    <option>0병</option>
+                                    <option>2병</option>
+                                    <option>3병</option>
+                                    <option>4병</option>
+                                    <option>5병</option>
+                                </select>
+                            </div>
+                            <!-- 수량 2 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3">바게트빵</label>
+                                <select id="bagguette" class="form-control col-sm-2 ml-3">
+                                    <option selected>4개</option>
+                                    <option>0개</option>
+                                    <option>1개</option>
+                                    <option>2개</option>
+                                    <option>3개</option>
+                                    <option>5개</option>
+                                </select>
+                            </div>
+                            <!-- 수량 3 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3">커피</label>
+                                <select id="coffee" class="form-control col-sm-2 ml-3">
+                                    <option selected>1포트</option>
+                                    <option>0포트</option>
+                                    <option>2포트</option>
+                                    <option>3포트</option>
+                                    <option>4포트</option>
+                                    <option>5포트</option>
+                                </select>
+                            </div>
+                            <!-- 배송지 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">배송지</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" id="to" placeholder="배송지">
+                                </div>
+                            </div>
+                            <!-- 배송 시간 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">배송시간</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" id="until" placeholder="배송시간">
+                                </div>
+                            </div>
+                            <!-- 수량 -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">수량</label>
+                                <div class="col-sm-3">
+                                    <input class="form-control" id="amount" placeholder="수량" value="1">
+                                </div>
+                            </div>
+                            <!-- footer -->
+                            <div class="form-group row modal-footer">
+                                <div class="col-sm-10 align-right">
+                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                                    <button type="submit" class="btn btn-primary">장바구니에 담기</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- form end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JavaScript-->
+        <script src="/vendor/jquery/jquery.min.js"></script>
+        <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="/js/sb-admin-2.min.js"></script>
+        <!--controller-->
+        <script src="/js/Cookie_controller.js"></script>
+        <script src="/js/Order_menu_controller.js"></script>
+        <script>
             let user_id = getCookie("user");
-            let menu = -1;
-            let style = cur_form.querySelector("#style").value;
-            if (style == "grand(+3,000)") style = "grand";
-            if (style == "deluxe(+10,000)") style = "deluxe";
-            let to = cur_form.querySelector("#to").value;
-            let until = cur_form.querySelector("#until").value;
-            let amount = cur_form.querySelector("#amount").value;
-            let food_amount_list = {};
-            
-            if (cur_form.id=="Vallentine_dinner") {
-                menu = 0;
+            document.getElementById("customer_id").innerHTML = user_id + "님";
+            display_recent_menu(user_id);
+
+            function order_btn_event_listener(cur_form) {
+                let user_id = getCookie("user");
+                let menu = -1;
+                let style = cur_form.querySelector("#style").value;
+                if (style == "grand(+3,000)") style = "grand";
+                if (style == "deluxe(+10,000)") style = "deluxe";
+                let to = cur_form.querySelector("#to").value;
+                let until = cur_form.querySelector("#until").value;
+                let amount = cur_form.querySelector("#amount").value;
+                let food_amount_list = {};
+                if (cur_form.id == "Vallentine_dinner") {
+                    menu = 0;
+                }
+                if (cur_form.id == "French_dinner") {
+                    menu = 1;
+
+                    let coffee = cur_form.querySelector("#coffee").value;
+                    food_amount_list.coffee = parseInt(coffee[0]);
+
+                    let wine = cur_form.querySelector("#wine").value;
+                    food_amount_list.wine = parseInt(wine[0]);
+
+                    let salad = cur_form.querySelector("#salad").value;
+                    food_amount_list.salad = parseInt(salad[0]);
+
+                    let beef = cur_form.querySelector("#beef").value;
+                    food_amount_list.beef = parseInt(beef[0]);
+                }
+                if (cur_form.id == "English_dinner") {
+                    menu = 2;
+
+                    let egg = cur_form.querySelector("#egg").value;
+                    food_amount_list.egg = parseInt(egg[0]);
+
+                    let bacon = cur_form.querySelector("#bacon").value;
+                    food_amount_list.bacon = parseInt(bacon[0]);
+
+                    let bread = cur_form.querySelector("#bread").value;
+                    food_amount_list.bread = parseInt(bread[0]);
+
+                    let stake = cur_form.querySelector("#stake").value;
+                    food_amount_list.stake = parseInt(stake[0]);
+                }
+                if (cur_form.id == "Champagne_festival_dinner") {
+                    menu = 3;
+
+                    let champagne = cur_form.querySelector("#champagne").value;
+                    food_amount_list.champagne = parseInt(champagne[0]);
+
+                    let bagguette = cur_form.querySelector("#bagguette").value;
+                    food_amount_list.bagguette = parseInt(bagguette[0]);
+
+                    let coffee = cur_form.querySelector("#coffee").value;
+                    food_amount_list.coffee = parseInt(coffee[0]);
+                }
+                if (!to) {
+                    alert("배송지를 입력해주세요.");
+                }
+                else if (!until) {
+                    alert("배송시간을 입력해주세요.");
+                }
+                else {
+                    add_order(user_id, menu, style, food_amount_list, amount, to, until);
+                }
             }
-
-            if (cur_form.id=="French_dinner") {
-                menu = 1;
-
-                let coffee = cur_form.querySelector("#coffee").value;
-                food_amount_list.coffee = parseInt(coffee[0]);
-
-                let wine = cur_form.querySelector("#wine").value;
-                food_amount_list.wine = parseInt(wine[0]);
-
-                let salad = cur_form.querySelector("#salad").value;
-                food_amount_list.salad = parseInt(salad[0]);
-
-                let beef = cur_form.querySelector("#beef").value;
-                food_amount_list.beef = parseInt(beef[0]);
-            }
-
-            if (cur_form.id=="English_dinner") {
-                menu = 2;
-
-                let egg = cur_form.querySelector("#egg").value;
-                food_amount_list.egg = parseInt(egg[0]);
-
-                let bacon = cur_form.querySelector("#bacon").value;
-                food_amount_list.bacon = parseInt(bacon[0]);
-
-                let bread = cur_form.querySelector("#bread").value;
-                food_amount_list.bread = parseInt(bread[0]);
-
-                let stake = cur_form.querySelector("#stake").value;
-                food_amount_list.stake = parseInt(stake[0]);
-            }
-
-            if (cur_form.id=="Champagne_festival_dinner") {
-                menu = 3;
-
-                let champagne = cur_form.querySelector("#champagne").value;
-                food_amount_list.champagne = parseInt(champagne[0]);
-
-                let bagguette = cur_form.querySelector("#bagguette").value;
-                food_amount_list.bagguette = parseInt(bagguette[0]);
-
-                let coffee = cur_form.querySelector("#coffee").value;
-                food_amount_list.coffee = parseInt(coffee[0]);
-            }
-
-            if (!to) {
-                alert("배송지를 입력해주세요.");
-            }
-            else if (!until) {
-                alert("배송시간을 입력해주세요.");
-            }
-            else {
-                // add_order
-                fetch('/menu', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        id : user_id,
-                        menu : menu,
-                        style : style,
-                        food_amount_list : JSON.stringify(food_amount_list),
-                        amount : amount,
-                        additional_info : JSON.stringify({
-                            to: to,
-                            until: until
-                        })
-                    })
-                })
-                .then(res => res.json())
-                .then(ret => {
-                    alert("장바구니에 담았습니다.");
-                })
-                .catch(error => {
-                    alert(error);
-                })
-            }
-        }
-    </script>
-    <!-- main js -->
-    <script>
-        let user_id = getCookie("user");
-        // id 갱신
-        document.getElementById("customer_id").innerHTML = user_id + "님";
-        display_recent_menu(user_id);
-    </script>
-
+        </script>
 </body>
 
 </html>

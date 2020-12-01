@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>회원가입</title>
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/custom_coloring.css">
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/custom_coloring.css">
 </head>
 
 <body>
@@ -26,13 +26,13 @@
                             </div>
                             <form class="user" method="GET" onsubmit="signup_btn_event_listener()">
                                 <div class="form-group">
-                                    <input type="id" class="form-control form-control-user"
-                                        id="inputId" placeholder="아이디">
+                                    <input type="id" class="form-control form-control-user" id="inputId"
+                                        placeholder="아이디">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="inputPassword" placeholder="비밀번호">
+                                        <input type="password" class="form-control form-control-user" id="inputPassword"
+                                            placeholder="비밀번호">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
@@ -52,32 +52,26 @@
                 </div>
             </div>
         </div>
-
     </div>
-
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/js/sb-admin-2.min.js"></script>
+    <!--Controllers-->
+    <script src="/js/Sign_up_controller.js"></script>
     <script>
         function signup_btn_event_listener() {
             let id = document.getElementById("inputId").value;
             let pw = document.getElementById("inputPassword").value;
             let rpw = document.getElementById("repeatPassword").value;
             var info = JSON.stringify({
-                is_checked : false,
-                is_customer : true,
-                recent_ordered_menu : [],
-                is_regular : false,
-                call_cnt : 0
+                is_checked: false,
+                is_customer: true,
+                recent_ordered_menu: [],
+                is_regular: false,
+                call_cnt: 0
             });
-
             if (!id) alert("아이디를 입력해주세요.");
             else if (!pw) alert("비밀번호를 입력해주세요.");
             else if (!rpw) alert("비밀번호 확인을 입력해주세요.");
@@ -86,22 +80,7 @@
                 add_new_member(id, pw, info);
             }
         }
-        // Sign_up_controller
-        function add_new_member(id, pw, info) {
-            fetch('/register', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({id, pw, info})
-                })
-                .then(res => res.json())
-                .then(ret => {
-                    alert("성공적으로 회원가입 되었습니다.");
-                    location = "/";
-                })
-                .catch(error => {
-                    alert("이미 있는 아이디입니다.");
-                })
-        }
     </script>
 </body>
+
 </html>
