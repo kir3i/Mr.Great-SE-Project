@@ -225,6 +225,22 @@ app.get('/history', (req, res) => {
     res.send(Order_history.order_history);
 });
 
+// 고객, 직원 - 로그아웃
+// 수신: id
+// 반환: 응답(성공 시 true, 실패 시 false)
+app.post('/logout', (req, res) => {
+    const { id } = req.body;
+    console.log('POST /logout:', id);
+    
+    // 로그아웃 처리
+    try {
+        Member_management.deactivate(id);
+        res.send(true);
+    } catch (e) {
+        console.log(e);
+        res.send(false);
+    }
+});
 
 
 // 404 에러 처리
