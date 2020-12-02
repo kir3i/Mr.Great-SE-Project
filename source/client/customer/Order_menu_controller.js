@@ -22,7 +22,7 @@ function display_recent_menu(user_id) {
             new_col.appendChild(new_card);
 
             new_card_body = document.createElement("div");
-            new_card_body.setAttribute("class", "card-body");
+            new_card_body.setAttribute("class", "card-body d-flex flex-column");
             new_card.appendChild(new_card_body);
 
             // item
@@ -45,11 +45,11 @@ function display_recent_menu(user_id) {
 
             //button
             new_card_button = document.createElement("div");
-            new_card_button.setAttribute("class", "row no-gutters align-items-center");
+            new_card_button.setAttribute("class", "row no-gutters align-items-center mt-auto");
             new_card_body.appendChild(new_card_button);
 
             new_card_button_text = document.createElement("a");
-            new_card_button_text.setAttribute("class", "btn btn-secondary");
+            new_card_button_text.setAttribute("class", "btn btn-secondary mt-auto");
             new_card_button_text.setAttribute("data-toggle", "modal");
             new_card_button_text.setAttribute("data-target", "#"+recent_menu+"_Modal");
             new_card_button_text.innerHTML = "주문하기";

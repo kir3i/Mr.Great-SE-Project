@@ -73,10 +73,10 @@
                         <div class="col-xl-6 col-md-6 mb-4">
                             <div class="h-100 card">
                                 <img src="/img/img_dduk.jpg" class="card-img-top" alt="발렌타인 디너(Valentine dinner)">
-                                <div class="card-body">
+                                <div class="card-body d-flex flex-column">
                                     <h5 class="card-title">발렌타인 디너(Valentine dinner) [10,000원]</h5>
                                     <p class="card-text">작은 하트 모양과 큐피드가 장식된 접시에 냅킨과 함께 제공됩니다.</p>
-                                    <a href="#" class="btn btn-secondary" data-toggle="modal"
+                                    <a href="#" class="btn btn-secondary mt-auto" data-toggle="modal"
                                         data-target="#Vallentine_dinner_Modal">
                                         주문하기
                                     </a>
@@ -86,10 +86,10 @@
                         <div class="col-xl-6 col-md-6 mb-4">
                             <div class="h-100 card">
                                 <img src="/img/img_dduk.jpg" class="card-img-top" alt="프렌치 디너(French dinner)">
-                                <div class="card-body">
+                                <div class="card-body d-flex flex-column">
                                     <h5 class="card-title">프렌치 디너(French dinner) [20,000원]</h5>
                                     <p class="card-text">커피 한잔, 와인 한잔, 샐러드, 고기가 제공됩니다.</p>
-                                    <a href="#" class="btn btn-secondary" data-toggle="modal"
+                                    <a href="#" class="btn btn-secondary mt-auto" data-toggle="modal"
                                         data-target="#French_dinner_Modal">
                                         주문하기
                                     </a>
@@ -99,10 +99,10 @@
                         <div class="col-xl-6 col-md-6 mb-4">
                             <div class="h-100 card">
                                 <img src="/img/img_dduk.jpg" class="card-img-top" alt="잉글리시 디너(English dinner)">
-                                <div class="card-body">
+                                <div class="card-body d-flex flex-column">
                                     <h5 class="card-title">잉글리시 디너(English dinner) [24,000원]</h5>
                                     <p class="card-text">에그 스크램블, 베이컨, 빵, 스테이크가 제공됩니다.</p>
-                                    <a href="#" class="btn btn-secondary" data-toggle="modal"
+                                    <a href="#" class="btn btn-secondary mt-auto" data-toggle="modal"
                                         data-target="#English_dinner_Modal">
                                         주문하기
                                     </a>
@@ -113,10 +113,10 @@
                             <div class="h-100 card">
                                 <img src="/img/img_dduk.jpg" class="card-img-top"
                                     alt="샴페인 축제 디너(Champagne Feast dinner)">
-                                <div class="card-body">
+                                <div class="card-body d-flex flex-column">
                                     <h5 class="card-title">샴페인 축제 디너(Champagne Feast dinner) [2인, 62,000원]</h5>
                                     <p class="card-text">샴페인 한병, 4개의 바게트빵, 커피 한 포트가 제공됩니다.</p>
-                                    <a href="#" class="btn btn-secondary" data-toggle="modal"
+                                    <a href="#" class="btn btn-secondary mt-auto" data-toggle="modal"
                                         data-target="#Champagne_festival_dinner_Modal">
                                         주문하기
                                     </a>
@@ -366,7 +366,7 @@
                             </div>
                             <!-- 수량 1 -->
                             <div class="form-group row">
-                                <label class="col-sm-3">에그 스크램블</label>
+                                <label class="col-sm-4">에그 스크램블</label>
                                 <select id="egg" class="form-control col-sm-2 ml-3">
                                     <option selected>1개</option>
                                     <option>0개</option>
@@ -378,7 +378,7 @@
                             </div>
                             <!-- 수량 2 -->
                             <div class="form-group row">
-                                <label class="col-sm-3">베이컨</label>
+                                <label class="col-sm-4">베이컨</label>
                                 <select id="bacon" class="form-control col-sm-2 ml-3">
                                     <option selected>1개</option>
                                     <option>0개</option>
@@ -390,7 +390,7 @@
                             </div>
                             <!-- 수량 3 -->
                             <div class="form-group row">
-                                <label class="col-sm-3">빵</label>
+                                <label class="col-sm-4">빵</label>
                                 <select id="bread" class="form-control col-sm-2 ml-3">
                                     <option selected>1개</option>
                                     <option>0개</option>
@@ -402,7 +402,7 @@
                             </div>
                             <!-- 수량 4 -->
                             <div class="form-group row">
-                                <label class="col-sm-3">스테이크</label>
+                                <label class="col-sm-4">스테이크</label>
                                 <select id="stake" class="form-control col-sm-2 ml-3">
                                     <option selected>1개</option>
                                     <option>0개</option>
@@ -414,21 +414,21 @@
                             </div>
                             <!-- 배송지 -->
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">배송지</label>
-                                <div class="col-sm-9">
+                                <label class="col-sm-4 col-form-label">배송지</label>
+                                <div class="col-sm-8">
                                     <input class="form-control" id="to" placeholder="배송지">
                                 </div>
                             </div>
                             <!-- 배송 시간 -->
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">배송시간</label>
-                                <div class="col-sm-9">
+                                <label class="col-sm-4 col-form-label">배송시간</label>
+                                <div class="col-sm-8">
                                     <input class="form-control" id="until" placeholder="배송시간">
                                 </div>
                             </div>
                             <!-- 배송 수량 -->
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">수량</label>
+                                <label class="col-sm-4 col-form-label">수량</label>
                                 <div class="col-sm-3">
                                     <input class="form-control" id="amount" placeholder="수량" value="1">
                                 </div>
