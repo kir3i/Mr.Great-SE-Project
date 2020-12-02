@@ -88,11 +88,17 @@ app.post('/menu', (req, res) => {
     const { id, menu, style, food_amount_list, amount, additional_info } = req.body;
     console.log('POST /menu:', id, menu, style, food_amount_list, amount, additional_info);
     
+    // 수량 예외 처리
+    
+
     // JSON parsing
     const food_amount_list_JSON = JSON.parse(food_amount_list);
     const additional_info_JSON = JSON.parse(additional_info);
     // Customer 객체가 가진 Basket에 새로운 Order를 추가
     try {
+        if(isNaN(Number(amount))) {
+            throw('Exception: amount is not a number');
+        }
         Member_management.activated_member_list[id].basket.add_order(
             id, menu, style, food_amount_list_JSON, amount, additional_info_JSON
         );
