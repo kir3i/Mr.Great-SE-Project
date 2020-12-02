@@ -582,7 +582,7 @@
                 if (style == "deluxe(+10,000)") style = "deluxe";
                 let to = cur_form.querySelector("#to").value;
                 let until = cur_form.querySelector("#until").value;
-                let amount = parseInt(cur_form.querySelector("#amount").value);
+                let amount = Number(cur_form.querySelector("#amount").value);
 
                 if (!Number.isInteger(amount)) {
                     alert("수량에 숫자를 입력해주세요.");
