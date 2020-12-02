@@ -489,14 +489,14 @@
                             </div>
                             <!-- 수량 2 -->
                             <div class="form-group row">
-                                <label class="col-sm-3">바게트빵</label>
+                                <label class="col-sm-3">바게트빵 4개</label>
                                 <select id="bagguette" class="form-control col-sm-2 ml-3">
-                                    <option selected>4개</option>
+                                    <option selected>1*4개</option>
                                     <option>0개</option>
-                                    <option>1개</option>
-                                    <option>2개</option>
-                                    <option>3개</option>
-                                    <option>5개</option>
+                                    <option>2*4개</option>
+                                    <option>3*4개</option>
+                                    <option>4*4개</option>
+                                    <option>5*4개</option>
                                 </select>
                             </div>
                             <!-- 수량 3 -->
@@ -529,7 +529,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">수량</label>
                                 <div class="col-sm-3">
-                                    <input class="form-control" id="amount" placeholder="수량" value="1">
+                                    <input class="form-control" id="amount" placeholder="수량" value="2">
                                 </div>
                             </div>
                             <!-- footer -->
@@ -591,6 +591,11 @@
 
                 if (amount < 1) {
                     alert("1개 이상의 수량을 입력해주세요.");
+                    return;
+                }
+
+                if (cur_form.id == "Champagne_festival_dinner" && amount < 2) {
+                    alert("샴페인 축제 디너는 2개 이상만 주문 가능합니다.");
                     return;
                 }
 
