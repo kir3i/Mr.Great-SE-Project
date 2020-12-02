@@ -582,7 +582,18 @@
                 if (style == "deluxe(+10,000)") style = "deluxe";
                 let to = cur_form.querySelector("#to").value;
                 let until = cur_form.querySelector("#until").value;
-                let amount = cur_form.querySelector("#amount").value;
+                let amount = parseInt(cur_form.querySelector("#amount").value);
+
+                if (!Number.isInteger(amount)) {
+                    alert("수량에 숫자를 입력해주세요.");
+                    return;
+                }
+
+                if (amount < 1) {
+                    alert("1개 이상의 수량을 입력해주세요.");
+                    return;
+                }
+
                 let food_amount_list = {};
                 if (cur_form.id == "Vallentine_dinner") {
                     menu = 0;

@@ -79,7 +79,12 @@ function add_order(user_id, menu, style, food_amount_list, amount, to, until) {
     })
     .then(res => res.json())
     .then(ret => {
-        alert("장바구니에 담았습니다.");
+        if (ret) {
+            alert("장바구니에 담았습니다.");
+        }
+        else {
+            alert("주문에 실패했습니다.");
+        }
     })
     .catch(error => {
         alert(error);
